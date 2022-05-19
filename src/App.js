@@ -2,7 +2,8 @@ import './App.css';
 import Navbar from './components/Navbar'
 import {Routes, Route} from 'react-router-dom'
 import SignUpPage from './pages/SignUpPage';
-import LoginPage from './pages/LoginPage'
+import EventListPage from './pages/EventListPage';
+import FeedListPage from './pages/FeedListPage';
 
 function App() {
   return (
@@ -12,6 +13,10 @@ function App() {
       <Routes>
         <Route path='/register' element={<SignUpPage  />} />
         <Route path='/login' element={<LoginPage  />} />
+        <Route path='/login' element={<LoginPage  />} />
+
+        <Route path='/events' element={<EventListPage />} />
+        <Route path='/feed' element={<FeedListPage />} />
       </Routes>
     </div>
   );
