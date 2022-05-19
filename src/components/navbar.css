@@ -1,0 +1,11 @@
+.navbar-left, .navbar-right {
+    width: 20%;
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
