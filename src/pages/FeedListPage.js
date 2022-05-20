@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./FeedPageList.css"
+import FeedDetailsPage from "./FeedDetailsPage";
 
 function FeedListPage(){
 
@@ -15,7 +16,7 @@ function FeedListPage(){
            return setFeed(response.data)
         })
         .catch(e=>{console.log("error getting blog list...", e)})
-    })
+    },[])
 
     return(
         <div className="feed-list">
@@ -36,9 +37,8 @@ function FeedListPage(){
         })
         
         }
-        
-
         </div>
+       
     )
      
     }

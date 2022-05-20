@@ -4,9 +4,11 @@ import {Routes, Route} from 'react-router-dom'
 import SignUpPage from './pages/SignUpPage';
 import EventListPage from './pages/EventListPage';
 import FeedListPage from './pages/FeedListPage';
-import LoginPage from './pages/LoginPage'
+import FeedDetailsPage from './pages/FeedDetailsPage';
+import LoginPage from "./pages/LoginPage"
 
 function App() {
+  
   return (
     <div className="App">
       <Navbar />
@@ -17,6 +19,7 @@ function App() {
 
         <Route path='/events' element={<EventListPage />} />
         <Route path='/feed' element={<FeedListPage />} />
+        <Route path='/feed/:feedId' element={<FeedDetailsPage />} />
       </Routes>
     </div>
   );

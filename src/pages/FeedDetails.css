@@ -1,0 +1,10 @@
+.feed-details{
+    background-color: lightgrey;
+    padding: 3rem;
+    margin: 2rem 1rem ;
+}
+
+.feed-content{
+    padding: 2rem;
+    border: solid grey 0.5px;
+}
