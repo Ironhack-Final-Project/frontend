@@ -6,6 +6,7 @@ import EventListPage from './pages/EventListPage';
 import FeedListPage from './pages/FeedListPage';
 import FeedDetailsPage from './pages/FeedDetailsPage';
 import LoginPage from "./pages/LoginPage"
+import Homepage from './pages/Homepage'
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
 
       <Routes>
+        <Route path='/' element={<Homepage  />} />
         <Route path='/register' element={<SignUpPage  />} />
         <Route path='/login' element={<LoginPage  />} />
 

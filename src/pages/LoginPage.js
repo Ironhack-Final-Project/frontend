@@ -23,7 +23,7 @@ function LoginPage(props) {
         e.preventDefault();
         const requestBody = { username, password };
      
-        axios.post(`${process.env.REACT_APP_API_URL}api/auth/login`, requestBody)
+        axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, requestBody)
           .then((response) => {
 
             const jwt = response.data.authToken
