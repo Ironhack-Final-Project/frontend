@@ -30,7 +30,7 @@ function FeedListPage(){
             <h2>{element.title}</h2>
             <p>{element.content.slice(0, 200)+"....."}</p>
             <p>Date: {time}</p>
-            <p>{element.postedBy}</p>
+            <p>Posted by: {element.postedBy.username}</p>
             <NavLink to={`/feed/${element._id}`}>Read Article</NavLink>
             </div>
             )

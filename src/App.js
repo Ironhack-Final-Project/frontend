@@ -7,6 +7,7 @@ import FeedListPage from './pages/FeedListPage';
 import FeedDetailsPage from './pages/FeedDetailsPage';
 import LoginPage from "./pages/LoginPage"
 import Homepage from './pages/Homepage'
+import CreatePost from './pages/CreatePost';
 
 function App() {
   
@@ -22,6 +23,7 @@ function App() {
         <Route path='/events' element={<EventListPage />} />
         <Route path='/feed' element={<FeedListPage />} />
         <Route path='/feed/:feedId' element={<FeedDetailsPage />} />
+        <Route path='/createPost' element={<CreatePost />} />
       </Routes>
     </div>
   );
