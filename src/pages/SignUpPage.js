@@ -19,13 +19,13 @@ function SignUpPage(props) {
     // Make an axios request to the API
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
-    axios.post(`${process.env.REACT_APP_API_URL}api/auth/signup`, requestBody)
+    axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, requestBody)
       .then((response) => {
         navigate('/login');
       })
       .catch((error) => {
-          console.log(error)
-        const errorDescription = error.response.message;
+          console.log(error.message)
+        const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       })
   };
@@ -35,7 +35,7 @@ function SignUpPage(props) {
     <div>
       <h1>Sign Up</h1>
 
-      { errorMessage && <p className="error-message">{errorMessage}</p> }
+      { errorMessage ? <p>{errorMessage}</p>: '' }
  
       <form onSubmit={handleSignupSubmit}>
         <label>User Name:</label>

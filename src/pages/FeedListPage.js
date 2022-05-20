@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./FeedPageList.css"
-import FeedDetailsPage from "./FeedDetailsPage";
 
 function FeedListPage(){
 
@@ -28,7 +27,7 @@ function FeedListPage(){
             return(
             <div className="feed">
             <h2>{element.title}</h2>
-            <p>{element.content}</p>
+            <p>{element.content.slice(0, 200)+"....."}</p>
             <p>Date: {time}</p>
             <p>{element.postedBy}</p>
             <NavLink to={`/feed/${element._id}`}>Read Article</NavLink>

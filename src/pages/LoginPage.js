@@ -23,7 +23,7 @@ function LoginPage(props) {
         e.preventDefault();
         const requestBody = { username, password };
      
-        axios.post(`${process.env.REACT_APP_API_URL}api/auth/login`, requestBody)
+        axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, requestBody)
           .then((response) => {
 
             const jwt = response.data.authToken
@@ -34,7 +34,8 @@ function LoginPage(props) {
             navigate('/');
           })
           .catch((error) => {
-            const errorDescription = error.response.message;
+              console.log(error.response)
+            const errorDescription = error.response.data.message;
             setErrorMessage(errorDescription);
           })
       };
@@ -43,7 +44,7 @@ function LoginPage(props) {
         <div className="LoginPage">
             <h1>Login</h1>
 
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
 
             <form onSubmit={handleLoginSubmit}>
                 <label>Username:</label>

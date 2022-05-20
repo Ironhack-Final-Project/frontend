@@ -10,6 +10,7 @@ import ContactUs from './pages/ContactUs';
 import Copyright from './pages/Copyright';
 import AboutUs from './pages/AboutUs';
 import Footer from './components/Footer';
+import Homepage from "./pages/Homepage"
 
 function App() {
   
@@ -20,9 +21,10 @@ function App() {
       <Navbar />
 
       <Routes>
+
       {/* ///Auth/// */}
+        <Route path='/' element={<Homepage  />} />
         <Route path='/register' element={<SignUpPage  />} />
-        <Route path='/login' element={<LoginPage  />} />
         <Route path='/login' element={<LoginPage  />} />
 
       {/* ///Main Pages/// */}
