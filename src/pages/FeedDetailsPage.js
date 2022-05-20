@@ -17,7 +17,6 @@ function FeedDetailsPage(props){
         .catch(e=>{console.log("error getting blog list...", e)})
     },[])
 
-console.log(feedDetails)
 return(
 <>
 {feedDetails === null?
