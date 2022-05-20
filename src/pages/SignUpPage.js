@@ -24,8 +24,8 @@ function SignUpPage(props) {
         navigate('/login');
       })
       .catch((error) => {
-          console.log(error)
-        const errorDescription = error.response.message;
+          console.log(error.message)
+        const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       })
   };
@@ -35,7 +35,7 @@ function SignUpPage(props) {
     <div>
       <h1>Sign Up</h1>
 
-      { errorMessage && <p className="error-message">{errorMessage}</p> }
+      { errorMessage ? <p>{errorMessage}</p>: '' }
  
       <form onSubmit={handleSignupSubmit}>
         <label>User Name:</label>

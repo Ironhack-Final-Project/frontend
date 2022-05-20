@@ -34,7 +34,8 @@ function LoginPage(props) {
             navigate('/');
           })
           .catch((error) => {
-            const errorDescription = error.response.message;
+              console.log(error.response)
+            const errorDescription = error.response.data.message;
             setErrorMessage(errorDescription);
           })
       };
@@ -43,7 +44,7 @@ function LoginPage(props) {
         <div className="LoginPage">
             <h1>Login</h1>
 
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
 
             <form onSubmit={handleLoginSubmit}>
                 <label>Username:</label>
