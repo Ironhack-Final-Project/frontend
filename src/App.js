@@ -6,22 +6,40 @@ import EventListPage from './pages/EventListPage';
 import FeedListPage from './pages/FeedListPage';
 import FeedDetailsPage from './pages/FeedDetailsPage';
 import LoginPage from "./pages/LoginPage"
+import ContactUs from './pages/ContactUs';
+import Copyright from './pages/Copyright';
+import AboutUs from './pages/AboutUs';
+import Footer from './components/Footer';
 
 function App() {
   
   return (
     <div className="App">
+
+    {/* ///Navbar/// */}
       <Navbar />
 
       <Routes>
+      {/* ///Auth/// */}
         <Route path='/register' element={<SignUpPage  />} />
         <Route path='/login' element={<LoginPage  />} />
         <Route path='/login' element={<LoginPage  />} />
 
+      {/* ///Main Pages/// */}
         <Route path='/events' element={<EventListPage />} />
         <Route path='/feed' element={<FeedListPage />} />
         <Route path='/feed/:feedId' element={<FeedDetailsPage />} />
+
+      {/* ///Footer Pages/// */}
+      <Route path="/aboutus" element={<AboutUs />}/>
+      <Route path="/copyright" element={<Copyright />}/>
+      <Route path="/contactus" element={<ContactUs />}/>
+
       </Routes>
+
+      {/* ///Footer/// */}
+    <Footer/>
+
     </div>
   );
 }
