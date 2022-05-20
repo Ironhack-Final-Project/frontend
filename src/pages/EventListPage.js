@@ -33,10 +33,8 @@ function EventListPage(){
             )
         })
         }
-      
-        
-
         </div>
+        
     )
      
     }
