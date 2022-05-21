@@ -4,3 +4,8 @@
     padding: 1rem;
     border: solid black 1px;
 }
+
+.attendees{
+    margin: 0.5rem 1rem 0rem 1rem ;
+    border-top: solid black 0.5px;
+}
