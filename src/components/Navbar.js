@@ -22,7 +22,7 @@ const Navbar = ( () => {
                     {user.isAdmin ?
                     <>
                     <NavLink to='/'>Create Event</NavLink> 
-                    <NavLink to='/'>Create Post</NavLink> 
+                    <NavLink to='/createPost'>Create Post</NavLink> 
                     </> 
                     :
                     ''}

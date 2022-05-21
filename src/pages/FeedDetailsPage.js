@@ -17,7 +17,6 @@ function FeedDetailsPage(props){
         .catch(e=>{console.log("error getting blog list...", e)})
     },[])
 
-
 return(
 <>
 {feedDetails === null?
@@ -28,7 +27,7 @@ return(
 <p className="feed-content">{feedDetails.content}</p>
 </div>
 <p>Date: {feedDetails.time.slice(0,10)}</p>
-<p>Posted by: {feedDetails.postedBy}</p>
+<p>Posted by: {feedDetails.postedBy.username}</p>
 
 </div>
     }

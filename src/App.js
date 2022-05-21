@@ -1,18 +1,37 @@
 import './App.css';
 import Navbar from './components/Navbar'
 import {Routes, Route} from 'react-router-dom'
+import axios from 'axios'
+import { useEffect, useState } from "react";
+
 import SignUpPage from './pages/SignUpPage';
 import EventListPage from './pages/EventListPage';
 import FeedListPage from './pages/FeedListPage';
 import FeedDetailsPage from './pages/FeedDetailsPage';
 import LoginPage from "./pages/LoginPage"
+import CreatePost from './pages/CreatePost';
 import ContactUs from './pages/ContactUs';
 import Copyright from './pages/Copyright';
 import AboutUs from './pages/AboutUs';
 import Footer from './components/Footer';
 import Homepage from "./pages/Homepage"
+import EditPost from './pages/EditPost'
+
 
 function App() {
+  const [posts, setPosts] = useState(null);
+
+  useEffect(() => {
+    fetchPosts()
+  }, []);
+
+  const fetchPosts = () => {
+    axios.get(`${process.env.REACT_APP_API_URL}/feed`)
+      .then( response => {
+        setPosts(response.data);
+      })
+      .catch( e => console.log("error getting projects from API...", e))
+  }
   
   return (
     <div className="App">
@@ -29,8 +48,10 @@ function App() {
 
       {/* ///Main Pages/// */}
         <Route path='/events' element={<EventListPage />} />
-        <Route path='/feed' element={<FeedListPage />} />
+        <Route path='/feed' element={<FeedListPage callbackFetch={fetchPosts} posts={posts}/>} />
         <Route path='/feed/:feedId' element={<FeedDetailsPage />} />
+        <Route path='/createPost' element={<CreatePost callbackFetch={fetchPosts}/>} />
+        <Route path='/edit-post/:feedId' element={<EditPost posts={posts} callbackFetch={fetchPosts}/>} />
 
       {/* ///Footer Pages/// */}
       <Route path="/aboutus" element={<AboutUs />}/>
