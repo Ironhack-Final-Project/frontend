@@ -20,15 +20,25 @@ import EditPost from './pages/EditPost'
 
 function App() {
   const [posts, setPosts] = useState(null);
+  const [events, setEvents] =useState(null)
 
   useEffect(() => {
     fetchPosts()
+    fetchEvents()
   }, []);
 
   const fetchPosts = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/feed`)
       .then( response => {
         setPosts(response.data);
+      })
+      .catch( e => console.log("error getting projects from API...", e))
+  }
+
+  const fetchEvents = () => {
+    axios.get(`${process.env.REACT_APP_API_URL}/events`)
+      .then( response => {
+        setEvents(response.data);
       })
       .catch( e => console.log("error getting projects from API...", e))
   }
@@ -50,7 +60,7 @@ function App() {
         <Route path='/events' element={<EventListPage />} />
         <Route path='/feed' element={<FeedListPage callbackFetch={fetchPosts} posts={posts}/>} />
         <Route path='/feed/:feedId' element={<FeedDetailsPage />} />
-        <Route path='/createPost' element={<CreatePost callbackFetch={fetchPosts}/>} />
+        <Route path='/createPost' element={<CreatePost events={events} callbackFetch={fetchPosts}/>} />
         <Route path='/edit-post/:feedId' element={<EditPost posts={posts} callbackFetch={fetchPosts}/>} />
 
       {/* ///Footer Pages/// */}

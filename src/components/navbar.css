@@ -1,10 +1,52 @@
-.navbar-left, .navbar-right {
-    width: 20%;
+.navbar-left{
+    width: 30%;
     justify-content: space-evenly;
     display: flex;
+    align-items: center;
+}
+
+.navbar-right{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30%;
+    min-width: 10%
 }
 
 .navbar{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    padding: 1rem;
 }
+
+.profile-div{
+    display: flex;
+    align-items: center;
+}
+
+.profile-div img {
+    width: 25%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin: 20px 10px;
+}
+
+.navbar-right button {
+    color: white;
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+

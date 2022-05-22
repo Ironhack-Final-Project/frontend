@@ -1,24 +1,28 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios"; 
+import axios from "axios";
+import {uploadImage} from '../components/utitlityFunctions'
  
 function SignUpPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [imageUrl, setImageUrl] = useState("");
  
   const navigate = useNavigate();
 
   
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = { email, password, username };
+    const requestBody = { email, password, username, imageUrl };
+
+    if (requestBody.imageUrl === ''){
+      delete requestBody.imageUrl
+  }
+
+  console.log(requestBody)
  
-    // Make an axios request to the API
-    // If POST request is successful redirect to login page
-    // If the request resolves with an error, set the error message in the state
     axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, requestBody)
       .then((response) => {
         navigate('/login');
@@ -29,7 +33,20 @@ function SignUpPage(props) {
         setErrorMessage(errorDescription);
       })
   };
- 
+
+  const handleFileUpload = (e) => {
+    
+    const uploadData = new FormData();
+
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    uploadImage(uploadData)
+        .then(response => {
+            console.log("response is: ", response);
+            setImageUrl(response.fileUrl);
+        })
+        .catch(err => console.log("Error while uploading the file: ", err));
+};
   
   return (
     <div>
@@ -45,6 +62,9 @@ function SignUpPage(props) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           />
+        <label>Upload Profile:</label>
+        <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
+
         <label>Email:</label>
         <input 
           type="email"

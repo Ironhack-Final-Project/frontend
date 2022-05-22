@@ -6,7 +6,6 @@ import {AuthContext} from '../context/auth.context'
 const Navbar = ( () => {
 
     const {isLoggedIn, user, logOutUser} = useContext(AuthContext)
-
     return(
         <div className="navbar">
 
@@ -26,7 +25,10 @@ const Navbar = ( () => {
                     </> 
                     :
                     ''}
-                    <NavLink to='/profilePage'>{user.username}'s Profile</NavLink> 
+                    <div className='profile-div'>
+                        <img src={user.imageUrl} alt={user.username}/> 
+                        <NavLink to='/profilePage'>{user.username}'s Profile</NavLink> 
+                    </div>
                     <button onClick={logOutUser}>Logout</button> 
                 </> 
                 : 

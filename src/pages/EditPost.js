@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios  from 'axios'
 import {useContext} from 'react'
 import { AuthContext } from '../context/auth.context'
+import {uploadImage} from '../components/utitlityFunctions'
 
 const CreatePost = ((props) => {
     console.log(props)
@@ -15,14 +16,19 @@ const CreatePost = ((props) => {
     console.log(props.posts)
     const postDetails = props.posts.find( post => post._id === id.feedId)
     
-    
+    console.log(postDetails)
+
     const [title, setTitle] = useState(postDetails.title)
     const [content, setContent] = useState(postDetails.content)
+    const [imageUrl, setImageUrl] = useState(postDetails.imageUrl);
+
+    console.log(imageUrl)
 
 
     const newDetails = {
         title,
-        content
+        content,
+        imageUrl
     }
 
     const handleEditSubmit = ((e) => {
@@ -40,9 +46,23 @@ const CreatePost = ((props) => {
 
                 setTitle('')
                 setContent('')
+                setImageUrl('')
             })
     })
-    //// problem is setUser is
+
+    const handleFileUpload = (e) => {
+    
+        const uploadData = new FormData();
+
+        uploadData.append("imageUrl", e.target.files[0]);
+    
+        uploadImage(uploadData)
+            .then(response => {
+                console.log("response is: ", response);
+                setImageUrl(response.fileUrl);
+            })
+            .catch(err => console.log("Error while uploading the file: ", err));
+    };
 
     return (
         <>
@@ -65,6 +85,7 @@ const CreatePost = ((props) => {
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 /><br />
+                <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
 
                 <button type="submit">Submit</button>
             </form>) : "loading"}
