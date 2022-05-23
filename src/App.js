@@ -3,6 +3,8 @@ import Navbar from './components/Navbar'
 import {Routes, Route} from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from "react";
+import {useContext} from 'react'
+import { AuthContext } from './context/auth.context'
 
 import ProfilePage from './pages/ProfilePage';
 import SignUpPage from './pages/SignUpPage';
@@ -21,7 +23,9 @@ import EditPost from './pages/EditPost'
 
 function App() {
   const [posts, setPosts] = useState(null);
-  const [events, setEvents] =useState(null)
+  const [events, setEvents] = useState(null)
+  const { user } = useContext(AuthContext)
+  // const [userProfile, setUser] = useState(user)
 
   useEffect(() => {
     fetchPosts()
@@ -35,6 +39,7 @@ function App() {
       })
       .catch( e => console.log("error getting projects from API...", e))
   }
+  console.log(user)
 
   const fetchEvents = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/events`)

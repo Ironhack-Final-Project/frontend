@@ -22,7 +22,7 @@ const CreatePost = ((props) => {
 
         const requestBody = { title, content, postedBy: user._id, event, imageUrl }
 
-        console.log(requestBody)
+        
 
         axios.post(`${process.env.REACT_APP_API_URL}/feed`, 
         requestBody, 
@@ -39,6 +39,7 @@ const CreatePost = ((props) => {
                 setEvent('')
             })
     })
+
     const handleFileUpload = (e) => {
     
         const uploadData = new FormData();

@@ -1,0 +1,42 @@
+.profile-page{
+    display: flex;
+    margin: 5% auto;
+    width: 80%
+}
+
+.profile-page-left, .profile-page-right{
+    width: 50%;
+}
+
+.profile-page form{
+    background: red;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.dog{
+    justify-content: space-around;
+    display: flex;
+    margin: 2% auto;
+    width: 40%;
+    background: red;
+    border-radius: 25px;
+}
+
+.dog img{
+    border-radius: 25px;
+    width: 40%;
+    margin: 2%
+}
+
+.dog-text{
+    color: white;
+    width: 20%;
+    font-size: 1.2rem; 
+}
+
+.dogs{
+    display: flex;
+    flex-wrap: wrap;
+
+}
