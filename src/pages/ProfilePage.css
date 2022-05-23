@@ -4,21 +4,35 @@
     width: 80%
 }
 
+
+
 .profile-page-left, .profile-page-right{
     width: 50%;
 }
 
-.profile-page form{
-    background: red;
-    width: 60%;
-    margin: 0 auto;
+.profile-page-left{
+    text-align: left;
 }
+
+.profile-page form{
+    padding: 1rem;
+    background: red;
+    color: white;
+    border-radius: 25px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+.profile-page input{
+    padding: 0.4rem;
+    border-radius: 25px;
+} 
 
 .dog{
     justify-content: space-around;
     display: flex;
     margin: 2% auto;
-    width: 40%;
+    width: 45%;
     background: red;
     border-radius: 25px;
 }

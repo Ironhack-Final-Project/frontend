@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from 'react'
 import {AuthContext} from '../context/auth.context'
 import {uploadImage} from '../components/utitlityFunctions'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import axios  from 'axios'
 import './ProfilePage.css'
 
@@ -71,9 +71,10 @@ const ProfilePage = ( (props) => {
                 <>
                 <img src={user.imageUrl} alt={user.username}/> 
                 <h3>Welcome {user.username}</h3>
-                <h4>Account type: {user.isAdmin ? "Admin": "Normal"}</h4>
-                <h4>Events your attending:</h4>
+                <p><strong>Account type:</strong> {user.isAdmin ? "Admin": "Normal"}</p>
+                <p><strong>Events your attending:</strong></p>
                 </> : ""}
+                <NavLink to='/'>Edit Profile Details</NavLink>
             </div>
 
             <div className="profile-page-left">
@@ -94,23 +95,22 @@ const ProfilePage = ( (props) => {
                 
                 <h4>Register a dog:</h4>
                 <form onSubmit={handlePostSubmit}>
-                    <label>Name:</label>
+                    <label><strong>Name:</strong></label><br/>
                     <input
                         type="name"
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     /><br />
-                    <label>Breed:</label>
+                    <label><strong>Breed:</strong></label><br/>
                     <input
                         type="breed"
                         name="breed"
                         value={breed}
                         onChange={(e) => setBreed(e.target.value)}
                     /><br />
-                    <label>Upload Image:</label>
+                    <label><strong>Upload Image:</strong></label><br/>
                     <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
-
                     <button type="submit">Register</button>
                 </form>
             </div>
