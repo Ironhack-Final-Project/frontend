@@ -14,7 +14,7 @@ function EventListPage() {
   useEffect(() => {
     user === null ? console.log("user undefined") : setUserId(user);
     updateEvents();
-  }, [user]);
+  }, [user, userId ]);
 
   const pushIdIntoEventArr = (eventId) => {
     axios
@@ -71,7 +71,7 @@ function EventListPage() {
               <p>Price: {element.cost}</p>
 
               {userId === null ? (
-                <p>Loading...</p>
+                <button onClick={()=>{navigate("/login")}}>Login to Attend</button>
               ) : element.attendees.find(
                   (attending) => attending._id === userId._id
                 ) === undefined ? (
