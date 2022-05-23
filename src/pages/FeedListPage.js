@@ -26,7 +26,7 @@ function FeedListPage(props) {
 
     const renderFeedList = (() => {
         return (
-            <>
+            <div className="posts-container">
                 {props.posts.map((element) => {
                     const time = element.time.slice(0, 10)
                     return (
@@ -46,14 +46,14 @@ function FeedListPage(props) {
                         </div>
                     )
                 })}
-            </>
+            </div>
         )
     })
 
 
     return (
         <div className="feed-list">
-            <h1>Feed</h1>
+            <h1>Blog</h1>
             {props.posts === null ?
                 <p>loading..</p> :
                 renderFeedList()}
