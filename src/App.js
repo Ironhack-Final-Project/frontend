@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from "react";
 
+import ProfilePage from './pages/ProfilePage';
 import SignUpPage from './pages/SignUpPage';
 import EventListPage from './pages/EventListPage';
 import FeedListPage from './pages/FeedListPage';
@@ -57,6 +58,7 @@ function App() {
         <Route path='/login' element={<LoginPage  />} />
 
       {/* ///Main Pages/// */}
+        <Route path='/profile-page' element={<ProfilePage />} />
         <Route path='/events' element={<EventListPage />} />
         <Route path='/feed' element={<FeedListPage callbackFetch={fetchPosts} posts={posts}/>} />
         <Route path='/feed/:feedId' element={<FeedDetailsPage />} />

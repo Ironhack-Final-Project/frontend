@@ -27,7 +27,7 @@ const Navbar = ( () => {
                     ''}
                     <div className='profile-div'>
                         <img src={user.imageUrl} alt={user.username}/> 
-                        <NavLink to='/profilePage'>{user.username}'s Profile</NavLink> 
+                        <NavLink to='/profile-page'>Your Profile</NavLink> 
                     </div>
                     <button onClick={logOutUser}>Logout</button> 
                 </> 
@@ -38,6 +38,7 @@ const Navbar = ( () => {
                 </>
                 }
             </div>
+            
             
         </div>
     )

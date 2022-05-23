@@ -9,13 +9,14 @@ function SignUpPage(props) {
   const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [imageUrl, setImageUrl] = useState("");
+  const [adminKey, setAdminKey] = useState("");
  
   const navigate = useNavigate();
 
   
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password, username, imageUrl };
+    const requestBody = { email, password, username, imageUrl, adminKey };
 
     if (requestBody.imageUrl === ''){
       delete requestBody.imageUrl
@@ -80,6 +81,16 @@ function SignUpPage(props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        
+        <label>Admin Key:</label>
+        <input 
+          type="password"
+          name="adminKey"
+          value={adminKey}
+          onChange={(e) => setAdminKey(e.target.value)}
+        />
+
+        
  
         <button type="submit">Sign Up</button>
       </form>
