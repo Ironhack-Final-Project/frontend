@@ -8,28 +8,25 @@ import { useNavigate } from "react-router-dom";
 function EventListPage() {
   const [userId, setUserId] = useState(null);
   const { user } = useContext(AuthContext);
-  // user === null || undefined?  user = "undefined" : 
   const [events, setEvents] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    (user  === null?
-    console.log("user undefined") :
-    setUserId(user))
+    user === null ? console.log("user undefined") : setUserId(user);
     updateEvents();
   }, [user]);
 
-const pushIdIntoEventArr = (eventId)=> {
-  axios
-  .put(`${process.env.REACT_APP_API_URL}/events/${eventId}`, {
-    id: userId._id,
-  })
-  .then((response) => {
-    console.log(response.data);
-    updateEvents();
-  })
-  .catch((err) => console.log("error attending event...", err));
-}
+  const pushIdIntoEventArr = (eventId) => {
+    axios
+      .put(`${process.env.REACT_APP_API_URL}/events/${eventId}/pushAttendee`, {
+        id: userId._id,
+      })
+      .then((response) => {
+        console.log(response.data);
+        updateEvents();
+      })
+      .catch((err) => console.log("error attending event...", err));
+  };
 
   const updateEvents = () => {
     axios
@@ -44,12 +41,20 @@ const pushIdIntoEventArr = (eventId)=> {
   };
 
   const attendEvent = (eventId) => {
-
-    userId === null ?
-    navigate("/login") : 
-    pushIdIntoEventArr(eventId)
+    userId === null ? navigate("/login") : pushIdIntoEventArr(eventId);
   };
 
+  const unattendEvent = (eventId) => {
+    axios
+      .put(`${process.env.REACT_APP_API_URL}/events/${eventId}/pullAttendee`, {
+        id: userId._id,
+      })
+      .then((response) => {
+        console.log(response.data);
+        updateEvents();
+      })
+      .catch((err) => console.log("error attending event...", err));
+  };
 
   return (
     <div className="events-list">
@@ -64,16 +69,28 @@ const pushIdIntoEventArr = (eventId)=> {
               <p>{element.date}</p>
               <p>Description: {element.description}</p>
               <p>Price: {element.cost}</p>
-              
-            
 
-              <button
-                onClick={() => {
-                  attendEvent(element._id);
-                }}
-              >
-                Attend
-              </button>
+              {userId === null ? (
+                <p>Loading...</p>
+              ) : element.attendees.find(
+                  (attending) => attending._id === userId._id
+                ) === undefined ? (
+                <button
+                  onClick={() => {
+                    attendEvent(element._id);
+                  }}
+                >
+                  Attend
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    unattendEvent(element._id);
+                  }}
+                >
+                  Unattend
+                </button>
+              )}
 
               <div className="attendees">
                 <h4>Attending:</h4>
