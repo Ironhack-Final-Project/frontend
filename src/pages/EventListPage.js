@@ -13,7 +13,7 @@ function EventListPage(props) {
   useEffect(() => {
     user === null ? console.log("user undefined") : setUserId(user);
     props.fetchEvents()
-  }, [user, userId ]);
+  }, [user, userId]);
 
   const pushIdIntoEventArr = (eventId) => {
     axios
@@ -27,17 +27,6 @@ function EventListPage(props) {
       .catch((err) => console.log("error attending event...", err));
   };
 
-  // const updateEvents = () => {
-  //   axios
-  //     .get(`${process.env.REACT_APP_API_URL}/events`)
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       return setEvents(response.data);
-  //     })
-  //     .catch((e) => {
-  //       console.log("error getting events list...", e);
-  //     });
-  // };
 
   const attendEvent = (eventId) => {
     userId === null ? navigate("/login") : pushIdIntoEventArr(eventId);
@@ -63,11 +52,11 @@ function EventListPage(props) {
       ) : (
         props.allEvents.map((element) => {
           return (
-            <div className="event">
-              <h2>{element.title}</h2>
+            <div className="event-element">
+              <h2>{element.name}</h2>
               <p>{element.date}</p>
               <p>Description: {element.description}</p>
-              <p>Price: {element.cost}</p>
+              <p>Price: {element.cost}€</p>
 
               {userId === null ? (
                 <button onClick={()=>{navigate("/login")}}>Login to Attend</button>
