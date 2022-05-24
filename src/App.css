@@ -3,6 +3,27 @@
   min-height: 100%;
 }
 
+.react-simple-scheduler{
+  padding: 1rem 5rem;
+  background-color: rgb(222, 233, 233) !important;
+}
+
+.react-simple-scheduler .body .schedule td.time{
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.react-simple-scheduler .body .schedule td{
+  background-color: rgb(255, 255, 255) !important;
+}
+.react-simple-scheduler .body .schedule {
+  background-color: rgb(255, 255, 255) !important;
+  border: black solid 1px;
+}
 
 
-
+  .react-simple-scheduler .body .event{
+    background-color: rgb(149, 64, 64) !important;
+  }
+.event{
+  margin: 0rem 0.3rem !important;
+}

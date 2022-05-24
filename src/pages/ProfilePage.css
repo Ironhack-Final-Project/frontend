@@ -39,13 +39,14 @@
 
 .dog img{
     border-radius: 25px;
-    width: 40%;
+    object-fit: cover;
+    max-width: 40%;
     margin: 2%
 }
 
 .dog-text{
     color: white;
-    width: 20%;
+    width: 40%;
     font-size: 1.2rem; 
 }
 
