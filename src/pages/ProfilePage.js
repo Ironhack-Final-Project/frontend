@@ -10,13 +10,20 @@ const ProfilePage = ( (props) => {
     const [name, setName] = useState("");
     const [dogs, setDogs] = useState([]);
     const [breed, setBreed] = useState("");
+    const [changeUser, setChangeUser] = useState("");
     const [imageUrl, setImageUrl] = useState("");
+    const [events, setEvents] = useState('')
     const navigate = useNavigate()
+    console.log(dogs)
 
     useEffect(()=>{
-        updateUser()
-    }, [])
-    
+        if (user === null){
+            return
+        } else {
+            updateUser()
+        }
+    }, [user])
+
     const handlePostSubmit = ((e) => {
         e.preventDefault()
         
@@ -54,16 +61,29 @@ const ProfilePage = ( (props) => {
     };
 
     const updateUser = (()=>{
-        console.log(user)
-        axios.get(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}/add-dog`)
+        axios.get(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}`)
             .then((response)=>{
-                console.log(response)
                 setDogs(response.data.dogs)
+                setEvents(response.data.eventsAttending)
             })
+            .catch(err => console.log(err));
     })
 
-    console.log(dogs)
-    console.log(imageUrl)
+    const deleteDog = ((index) => {
+
+        axios.get(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}/delete-dog`)
+            .then((response) => {
+                let user = response.data
+                user.dogs.splice(index, 1)
+                axios.put(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}`, user)
+                .then(()=> {
+                    updateUser()
+                })
+            })
+            .catch(err => console.log(err))
+            
+    })
+
     return (
         <div className="profile-page">
             <div className="profile-page-left">
@@ -73,20 +93,28 @@ const ProfilePage = ( (props) => {
                 <h3>Welcome {user.username}</h3>
                 <p><strong>Account type:</strong> {user.isAdmin ? "Admin": "Normal"}</p>
                 <p><strong>Events your attending:</strong></p>
+                    {events ? events.map(event => {
+                        //template can add navlink's or whatever
+                        return (
+                        <>
+                            <NavLink to={`/events/${event._id}`}>{event.name}</NavLink>
+                        </>)
+                    }): ''}
                 </> : ""}
-                <NavLink to='/'>Edit Profile Details</NavLink>
+                {/* <NavLink to='/edit-profile'>Edit Profile Details</NavLink> */}
             </div>
 
             <div className="profile-page-left">
                 <h4>Your dogs:</h4>
                     <div className='dogs'>
 
-                    {dogs.length ?dogs.map( dog =>
+                    {dogs.length ?dogs.map( (dog, index) =>
                     <div className="dog">
                         <img src={dog.imageUrl} alt={dog.name} />
                          <div className='dog-text'>
                             <p><strong>Name:</strong> {dog.name}</p> 
                             <p><strong>Breed:</strong> {dog.breed}</p> 
+                            <a href='#' onClick={(() => deleteDog(index))}>Remove</a>
                         </div>
                     </div>
                     )
