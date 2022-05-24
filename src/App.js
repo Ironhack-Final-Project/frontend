@@ -38,6 +38,7 @@ function App() {
   }, []);
 
 
+
   const fetchPosts = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/feed`)
@@ -70,7 +71,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
 
         {/* ///Main Pages/// */}
-        <Route path="/profile-page" element={<ProfilePage />} />
+        <Route path="/profile-page" element={<ProfilePage /> } />
         <Route
           path="/events"
           element={
