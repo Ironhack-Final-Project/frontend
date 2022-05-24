@@ -15,6 +15,7 @@ function Calender(props) {
 
 
   const renderArr = () => {
+     
       setArr((prevArr)=>{
        return( props.events.map((element) => {
             return {
@@ -34,9 +35,13 @@ function Calender(props) {
   };
 
   useEffect(() => {
-    renderArr();
-    setEvents(arr);
-  }, [events]);
+    if(arr[0]===undefined){
+        renderArr();
+    }
+    else{
+        setEvents(arr);
+    }
+  }, [arr]);
 
 
   return (
@@ -49,7 +54,9 @@ function Calender(props) {
         events={events}
         selected={props.selected}
         setSelected={props.setSelected}
-        onRequestAdd={(evt) => addEvent(evt)}
+        onRequestAdd={(evt) => {
+            addEvent({...evt, name: "newEvent"})
+            }}
         onRequestEdit={(evt) => {navigate(`/events/${evt.id}`)}}
       />
     </>
