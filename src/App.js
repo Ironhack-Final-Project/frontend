@@ -23,6 +23,7 @@ import EditPost from "./pages/EditPost";
 import Calender from "./pages/Scheduler";
 import CreateEvent from "./pages/CreateEvent";
 import EventDetails from "./pages/EventDetails";
+import DogCare from "./pages/Dogcare";
 
 function App() {
   const [posts, setPosts] = useState(null);
@@ -104,6 +105,7 @@ function App() {
             />
           }
         />
+        <Route path="/dogcare" element={<DogCare />} />
         <Route path="/createEvent" element={<CreateEvent />} />
         <Route path="/events/:eventId" element={<EventDetails fetchEvents={fetchEvents}/>} />
 
@@ -111,6 +113,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/copyright" element={<Copyright />} />
         <Route path="/contactus" element={<ContactUs />} />
+        
       </Routes>
 
       {/* ///Footer/// */}

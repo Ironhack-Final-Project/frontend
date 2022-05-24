@@ -14,6 +14,7 @@ const Navbar = ( () => {
                 <NavLink to='/feed'>Feed</NavLink> 
                 <NavLink to='/events'>Events</NavLink> 
                 <NavLink to='/scheduler'>Calendar</NavLink> 
+                <NavLink to='/dogcare'>DogCare</NavLink> 
             </div>
 
             <div className='navbar-right'>
