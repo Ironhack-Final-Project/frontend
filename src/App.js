@@ -104,7 +104,7 @@ function App() {
           }
         />
         <Route path="/createEvent" element={<CreateEvent />} />
-        <Route path="/events/:eventId" element={<EventDetails />} />
+        <Route path="/events/:eventId" element={<EventDetails fetchEvents={fetchEvents}/>} />
 
         {/* ///Footer Pages/// */}
         <Route path="/aboutus" element={<AboutUs />} />
