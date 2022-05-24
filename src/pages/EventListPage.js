@@ -5,15 +5,14 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
 
-function EventListPage() {
+function EventListPage(props) {
   const [userId, setUserId] = useState(null);
   const { user } = useContext(AuthContext);
-  const [events, setEvents] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     user === null ? console.log("user undefined") : setUserId(user);
-    updateEvents();
+    props.fetchEvents()
   }, [user, userId ]);
 
   const pushIdIntoEventArr = (eventId) => {
@@ -23,22 +22,22 @@ function EventListPage() {
       })
       .then((response) => {
         console.log(response.data);
-        updateEvents();
+        props.fetchEvents();
       })
       .catch((err) => console.log("error attending event...", err));
   };
 
-  const updateEvents = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/events`)
-      .then((response) => {
-        console.log(response.data);
-        return setEvents(response.data);
-      })
-      .catch((e) => {
-        console.log("error getting events list...", e);
-      });
-  };
+  // const updateEvents = () => {
+  //   axios
+  //     .get(`${process.env.REACT_APP_API_URL}/events`)
+  //     .then((response) => {
+  //       console.log(response.data);
+  //       return setEvents(response.data);
+  //     })
+  //     .catch((e) => {
+  //       console.log("error getting events list...", e);
+  //     });
+  // };
 
   const attendEvent = (eventId) => {
     userId === null ? navigate("/login") : pushIdIntoEventArr(eventId);
@@ -51,7 +50,7 @@ function EventListPage() {
       })
       .then((response) => {
         console.log(response.data);
-        updateEvents();
+        props.fetchEvents();
       })
       .catch((err) => console.log("error attending event...", err));
   };
@@ -59,10 +58,10 @@ function EventListPage() {
   return (
     <div className="events-list">
       <h1>Events</h1>
-      {events === null ? (
+      {props.allEvents === null ? (
         <p>Loading...</p>
       ) : (
-        events.map((element) => {
+        props.allEvents.map((element) => {
           return (
             <div className="event">
               <h2>{element.title}</h2>

@@ -13,6 +13,7 @@ const Navbar = ( () => {
                 <NavLink to='/'>Homepage</NavLink> 
                 <NavLink to='/feed'>Feed</NavLink> 
                 <NavLink to='/events'>Events</NavLink> 
+                <NavLink to='/scheduler'>Calendar</NavLink> 
             </div>
 
             <div className='navbar-right'>
@@ -20,7 +21,7 @@ const Navbar = ( () => {
                 <>  
                     {user.isAdmin ?
                     <>
-                    <NavLink to='/'>Create Event</NavLink> 
+                    <NavLink to='/createEvent'>Create Event</NavLink> 
                     <NavLink to='/createPost'>Create Post</NavLink> 
                     </> 
                     :
