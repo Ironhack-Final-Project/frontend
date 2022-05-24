@@ -13,6 +13,8 @@ const CreatePost = ((props) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
+
+    console.log(props)
     
     
     const handlePostSubmit = ((e) => {
@@ -85,9 +87,9 @@ const CreatePost = ((props) => {
                     >
                     <>
                     <option value=''>None</option>
-                    {props.events ? props.events.map((event) => {
+                    {props.allEvents ? props.allEvents.map((event) => {
                         return (<option
-                             value={event._id}>{event.title}</option>)
+                             value={event._id}>{event.name}</option>)
                     }) : ''}
                     </>
                 </select>
