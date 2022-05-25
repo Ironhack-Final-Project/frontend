@@ -40,10 +40,10 @@ return(
                     }
                         {feedDetails.event ?
                         <div className="feed-event-details">
-                            <h3>{feedDetails.event.title}</h3>
+                            <h3>{feedDetails.event.name}</h3>
                             <p>Cost: €{feedDetails.event.cost}</p>
                             <p>Location: {feedDetails.event.location}</p>
-                            <NavLink to="#">Click here for more details</NavLink>
+                            <NavLink to={`/events/${feedDetails.event._id}`}>Click here for more details</NavLink>
                         </div> : ''
                         }
                     </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios  from 'axios'
 import {useContext} from 'react'
@@ -6,25 +6,28 @@ import { AuthContext } from '../context/auth.context'
 import {uploadImage} from '../components/utitlityFunctions'
 
 const CreatePost = ((props) => {
-    console.log(props)
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
-    
     const id = useParams()
-    console.log(id)
-
-    console.log(props.posts)
-    const postDetails = props.posts.find( post => post._id === id.feedId)
+    const [title, setTitle] = useState('')
+    const [content, setContent] = useState('')
+    const [imageUrl, setImageUrl] = useState('');
+    const [postDetails, setPostDetails] = useState('')
+    const [errorMessage, setErrorMessage] = useState(undefined);
+    console.log(props)
     
-    console.log(postDetails)
-
-    const [title, setTitle] = useState(postDetails.title)
-    const [content, setContent] = useState(postDetails.content)
-    const [imageUrl, setImageUrl] = useState(postDetails.imageUrl);
-
-    console.log(imageUrl)
-
-
+    useEffect(() => {
+         setPostDetails(props.posts.find( post => post._id === id.feedId))
+    },[props])
+    
+    useEffect(()=>{
+        setTitle(postDetails.title)
+        setContent(postDetails.content)
+        setImageUrl(postDetails.imageUrl)
+    }, [postDetails])
+    
+    
+    
     const newDetails = {
         title,
         content,
@@ -33,12 +36,15 @@ const CreatePost = ((props) => {
 
     const handleEditSubmit = ((e) => {
         e.preventDefault()
+
+        const storedToken = localStorage.getItem('authToken')
+
         
         // const storedToken = localStorage.getItem('authToken')
 
         axios.put(`${process.env.REACT_APP_API_URL}/feed/${id.feedId}`, 
         newDetails, 
-        // { headers: { Authorization: `Bearer ${storedToken}`}}
+        { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
                 props.callbackFetch()
@@ -67,6 +73,9 @@ const CreatePost = ((props) => {
     return (
         <>
             <h1>Edit a blog post</h1>
+
+            {errorMessage ? <p className="error-message">{errorMessage}</p>: ''} 
+
             {title !== null ? (
 
             

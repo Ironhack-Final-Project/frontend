@@ -10,8 +10,10 @@ const CreatePost = ((props) => {
     const [content, setContent] = useState('')
     const [imageUrl, setImageUrl] = useState("");
     const [event, setEvent] = useState("");
+    const [errorMessage, setErrorMessage] = useState(undefined);
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
+    const storedToken = localStorage.getItem('authToken') // is necessary?
 
 
     console.log(props)
@@ -23,12 +25,11 @@ const CreatePost = ((props) => {
         const storedToken = localStorage.getItem('authToken')
 
         const requestBody = { title, content, postedBy: user._id, event, imageUrl }
-
         
 
         axios.post(`${process.env.REACT_APP_API_URL}/feed`, 
         requestBody, 
-        // { headers: { Authorization: `Bearer ${storedToken}`}}
+        { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
                 props.callbackFetch()
@@ -39,6 +40,10 @@ const CreatePost = ((props) => {
                 setContent('')
                 setImageUrl('')
                 setEvent('')
+            })
+            .catch((error) => {
+                const errorDescription = error.response.data;
+                setErrorMessage(errorDescription);
             })
     })
 
@@ -61,6 +66,8 @@ const CreatePost = ((props) => {
     return (
         <>
             <h1>Create a blog post</h1>
+
+            {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
 
             <form onSubmit={handlePostSubmit}>
                 <label>Post Title:</label>

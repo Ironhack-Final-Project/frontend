@@ -34,7 +34,6 @@ function LoginPage(props) {
             navigate('/');
           })
           .catch((error) => {
-              console.log(error.response)
             const errorDescription = error.response.data.message;
             setErrorMessage(errorDescription);
           })
@@ -67,7 +66,7 @@ function LoginPage(props) {
             </form>
 
             <p>Don't have an account yet?</p>
-            <Link to={"/signup"}> Sign Up</Link>
+            <Link to={"/register"}> Sign Up</Link>
         </div>
     )
 }

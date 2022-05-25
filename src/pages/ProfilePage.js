@@ -32,7 +32,7 @@ const ProfilePage = ( (props) => {
         const requestBody = { user, name, breed, imageUrl }
 
         console.log(user)
-        axios.put(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}/add-dog`, requestBody
+        axios.put(`${process.env.REACT_APP_API_URL}/user/${user._id}/add-dog`, requestBody
         // { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
@@ -61,7 +61,7 @@ const ProfilePage = ( (props) => {
     };
 
     const updateUser = (()=>{
-        axios.get(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/user/${user._id}`)
             .then((response)=>{
                 setDogs(response.data.dogs)
                 setEvents(response.data.eventsAttending)
@@ -71,11 +71,13 @@ const ProfilePage = ( (props) => {
 
     const deleteDog = ((index) => {
 
-        axios.get(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}/delete-dog`)
+        axios.get(`${process.env.REACT_APP_API_URL}/user/${user._id}/delete-dog`)
             .then((response) => {
-                let user = response.data
-                user.dogs.splice(index, 1)
-                axios.put(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}`, user)
+                console.log(response)
+                let dogs = response.data.dogs
+                const eventsAttending = response.data.eventsAttending
+                dogs.splice(index, 1)
+                axios.put(`${process.env.REACT_APP_API_URL}/user/${user._id}`, {dogs, eventsAttending})
                 .then(()=> {
                     updateUser()
                 })
