@@ -96,7 +96,7 @@ function SignUpPage(props) {
       </form>
  
       <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <Link to={"/f"}> Login</Link>
     </div>
   )
 }

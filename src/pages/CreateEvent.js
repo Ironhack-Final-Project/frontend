@@ -15,6 +15,7 @@ const CreateEvent = (props) => {
   const [cost, setCost] = useState("");
   const [location, setLocation] = useState("");
   const [repeat, setRepeat] = useState(0);
+  const [errorMessage, setErrorMessage] = useState(undefined);
 
   const [selected, setSelected] = useState(new Date());
   const [events, setEvents, addEvent] = useArrayState([]);
@@ -26,12 +27,17 @@ const CreateEvent = (props) => {
   const handleEventSubmit = (e) => {
     e.preventDefault();
 
+    const storedToken = localStorage.getItem('authToken')
+
     const requestBody = { name, description, from: new Date(from), to: new Date(to), cost, location, repeat };
 
     console.log(requestBody);
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/events`, requestBody)
+      .post(`${process.env.REACT_APP_API_URL}/events`, 
+      requestBody,
+      { headers: { Authorization: `Bearer ${storedToken}`}}
+      )
       .then((response) => {
         // axios.put(`${process.env.REACT_APP_API_URL}/events/pushScheduler`);
         // props.setEvents((prevEvents) => {
@@ -40,8 +46,9 @@ const CreateEvent = (props) => {
         // });
         navigate("/events");
       })
-      .catch((err) => {
-        console.log("error creating event...", err);
+      .catch((error) => {
+        const errorDescription = error.response.data;
+        setErrorMessage(errorDescription);
       });
   };
   // const handleFileUpload = (e) => {
@@ -61,6 +68,8 @@ const CreateEvent = (props) => {
   return (
     <>
       <h1>Create a blog post</h1>
+
+      {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
 
       <form onSubmit={handleEventSubmit}>
         <label>Title:</label>

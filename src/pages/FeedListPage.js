@@ -11,12 +11,13 @@ function FeedListPage(props) {
     const [username, setUsername] = useState('guest')
     const { user } = useContext(AuthContext)
 
-    const deletePost = ((id) => {
+    const deletePost = ((element) => {
+        const storedToken = localStorage.getItem('authToken')
         if (!localStorage.getItem('authToken')) {
             return
         }
 
-        axios.delete(`${process.env.REACT_APP_API_URL}/feed/${id}`)
+        axios.delete(`${process.env.REACT_APP_API_URL}/feed/${element._id}`)
             .then(() => {
                 props.callbackFetch()
                 console.log("success")
@@ -40,7 +41,7 @@ function FeedListPage(props) {
                             {user && user.username ? element.postedBy.username === user.username ?
                                 <>
                                     <NavLink to={`/edit-post/${element._id}`}>Edit</NavLink>
-                                    <a href='#' onClick={(() => deletePost(element._id))}>Delete</a>
+                                    <a href='#' onClick={(() => deletePost(element))}>Delete</a>
                                 </>
                                 : '' : ''}
                         </div>
