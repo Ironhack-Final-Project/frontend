@@ -3,7 +3,6 @@ import {useContext, useEffect} from 'react'
 import {AuthContext} from '../context/auth.context'
 import { Calendar, Scheduler, useArrayState } from "@cubedoodl/react-simple-scheduler";
 import axios from "axios";
-import { computeHeadingLevel } from "@testing-library/react";
 
 function DogCare(){
   const [selected, setSelected] = useState(new Date());
@@ -11,9 +10,8 @@ function DogCare(){
   const [dogcare, setDogcare] = useState([])
   const [arr, setArr] = useState([])
   const {user} = useContext(AuthContext)
-  let fetched = false;
 
-  useEffect(()=>{console.log(fetched)
+  useEffect(()=>{
     if (user === null){
         console.log(1)
         return
@@ -29,7 +27,6 @@ function DogCare(){
     }
   },[user, arr])
 
-console.log("UUUUUUUUUUUU", user)
   const renderArr = (array) => {
       console.log("array to render...", array)
     setArr((prevArr)=>{

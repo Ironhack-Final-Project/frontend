@@ -24,6 +24,7 @@ const Navbar = ( () => {
                     <>
                     <NavLink to='/createEvent'>Create Event</NavLink> 
                     <NavLink to='/createPost'>Create Post</NavLink> 
+                    <NavLink to='/overview'>Overview</NavLink> 
                     </> 
                     :
                     ''}
