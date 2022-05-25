@@ -8,17 +8,18 @@ import {uploadImage} from '../components/utitlityFunctions'
 const CreatePost = ((props) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
-    const id = useParams()
+    const {feedId} = useParams()
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [imageUrl, setImageUrl] = useState('');
     const [postDetails, setPostDetails] = useState('')
     const [errorMessage, setErrorMessage] = useState(undefined);
-    console.log(props)
     
     useEffect(() => {
-         setPostDetails(props.posts.find( post => post._id === id.feedId))
-    },[props])
+        axios.get(`${process.env.REACT_APP_API_URL}/feed/${feedId}`)
+            .then( response => setPostDetails(response.data))
+            .catch(err => console.log(err))
+    },[])
     
     useEffect(()=>{
         setTitle(postDetails.title)
@@ -36,13 +37,9 @@ const CreatePost = ((props) => {
 
     const handleEditSubmit = ((e) => {
         e.preventDefault()
-
         const storedToken = localStorage.getItem('authToken')
 
-        
-        // const storedToken = localStorage.getItem('authToken')
-
-        axios.put(`${process.env.REACT_APP_API_URL}/feed/${id.feedId}`, 
+        axios.put(`${process.env.REACT_APP_API_URL}/feed/${feedId}`, 
         newDetails, 
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
@@ -74,9 +71,9 @@ const CreatePost = ((props) => {
         <>
             <h1>Edit a blog post</h1>
 
-            {errorMessage ? <p className="error-message">{errorMessage}</p>: ''} 
+            {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
 
-            {title !== null ? (
+            {title !== '' ? (
 
             
             <form onSubmit={handleEditSubmit}>

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
+import "./EventDetails.css"
 
 function EventDetails(props) {
   const { eventId } = useParams();
@@ -61,36 +62,50 @@ const navigate = useNavigate();
   };
 
   return (
-    <div>
+    <div >
       {eventDetails === null ? (
         <p>Loading...</p>
       ) : (
-        <div>
-          <h1>{eventDetails.name}</h1>
-          <p>Date: {eventDetails.from.slice(0, 10)}</p>
-          <p>From: {eventDetails.from.slice(11, 16)} h</p>
-          <p>To: {eventDetails.to.slice(11, 16)} h</p>
-          <p>Description: {eventDetails.description}</p>
-          <p>Price: {eventDetails.cost}</p>
-          <p>Location: {eventDetails.location}</p>
-          {eventDetails.repeat == 1 ? <p>every week</p> : null}
-          {eventDetails.repeat == 2 ? <p>every month</p> : null}
+        <div className='event-details-container'>
+          <div className="event-details-left">
+            <h1>{eventDetails.name}</h1>
+            <p>Date: {eventDetails.from.slice(0, 10)}</p>
+            <p>From: {eventDetails.from.slice(11, 16)} h</p>
+            <p>To: {eventDetails.to.slice(11, 16)} h</p>
+            <p>Description: {eventDetails.description}</p>
+            <p>Price: {eventDetails.cost}</p>
+            <p>Location: {eventDetails.location}</p>
+            {eventDetails.repeat == 1 ? <p>every week</p> : null}
+            {eventDetails.repeat == 2 ? <p>every month</p> : null}
 
-          <div>
+          </div>
+          <div className="event-details-right">
             <h5>Attending:</h5>
             {eventDetails.attendees.map((element) => {
               return (
                 <>
                   <p>{element.username}</p>
-                </>
-              );
+                  <div className="event-dogs">
+                  {element.dogs.map((dog) => {
+                    console.log(dog)
+                    return (
+                        <div className="event-dog">
+                          <div>
+                            <p>{dog.name}</p>
+                            <p>{dog.breed}</p>
+                          </div>
+                          <img  src={dog.imageUrl} />
+                        </div>
+                    )
+                  })}
+                  </div>
+                </>);
             })}
-          </div>
           {userId === null ? (
-                <button onClick={()=>{navigate("/login")}}>Login to Attend</button>
-              ) : eventDetails.attendees.find(
-                  (attending) => attending._id === userId._id
-                ) === undefined ? (
+            <button onClick={()=>{navigate("/login")}}>Login to Attend</button>
+            ) : eventDetails.attendees.find(
+              (attending) => attending._id === userId._id
+              ) === undefined ? (
                 <button
                   onClick={() => {
                     attendEvent(eventDetails._id);
@@ -100,13 +115,14 @@ const navigate = useNavigate();
                 </button>
               ) : (
                 <button
-                  onClick={() => {
-                    unattendEvent(eventDetails._id);
-                  }}
+                onClick={() => {
+                  unattendEvent(eventDetails._id);
+                }}
                 >
                   Unattend
                 </button>
               )}
+            </div>
         </div>
       )}
     </div>

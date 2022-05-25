@@ -1,0 +1,28 @@
+.event-details-container{
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: space-evenly;
+}
+
+.event-dogs{
+ display: flex;
+ width: 90%;
+ justify-content: space-around;
+ margin: 0 auto;
+ flex-wrap: wrap;
+}
+
+.event-details-right, .event-details-left{
+    width: 40%
+}
+
+.event-dog{
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.event-dog img{
+    width: 30%;
+}

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./EventPageList.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 function EventListPage(props) {
   const [userId, setUserId] = useState(null);
@@ -57,6 +57,7 @@ function EventListPage(props) {
               <p>{element.date}</p>
               <p>Description: {element.description}</p>
               <p>Price: {element.cost}€</p>
+              <NavLink to={`/events/${element._id}`}>More details</NavLink><br/>
 
               {userId === null ? (
                 <button onClick={()=>{navigate("/login")}}>Login to Attend</button>
@@ -80,7 +81,7 @@ function EventListPage(props) {
                 </button>
               )}
 
-              <div className="attendees">
+              {/* <div className="attendees">
                 <h4>Attending:</h4>
                 {element.attendees.map((element) => {
                   return (
@@ -89,7 +90,7 @@ function EventListPage(props) {
                     </>
                   );
                 })}
-              </div>
+              </div> */}
             </div>
           );
         })
