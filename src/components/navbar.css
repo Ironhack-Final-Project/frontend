@@ -18,8 +18,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: gray;
+    background-color: #041C32;
     padding: 1rem;
+    color: white;
 }
 
 .profile-div{

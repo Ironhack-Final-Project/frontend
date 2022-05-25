@@ -9,10 +9,10 @@
 
 
 .feed{
-    background-color: lightgray;
+    background-color: #ECB365;
     margin: 1rem;
     padding: 1rem;
-    border: solid black 1px;
+    /* border: solid black 1px; */
     width: 20%;
     border-radius: 25px;
     min-height: 45%
