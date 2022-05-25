@@ -64,6 +64,7 @@ function App() {
   return (
     <div className="App">
       {/* ///Navbar/// */}
+      <div className="routes-navbar-container">
       <Navbar />
 
       <Routes>
@@ -119,7 +120,7 @@ function App() {
         
       </Routes>
 
-      {/* ///Footer/// */}
+      </div>
       <Footer />
     </div>
   );
