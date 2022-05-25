@@ -1,13 +1,21 @@
 .profile-page{
     display: flex;
     margin: 5% auto;
-    width: 80%
+    width: 80%;
 }
 
 
+body {
+    background: blue;
+    color: white
+}
 
 .profile-page-left, .profile-page-right{
     width: 50%;
+}
+
+.profile-page-left img{
+    max-height: 60vh;
 }
 
 .profile-page-left{
@@ -16,7 +24,6 @@
 
 .profile-page form{
     padding: 1rem;
-    background: red;
     color: white;
     border-radius: 25px;
     width: 80%;

@@ -1,10 +1,15 @@
 .footer{
     display: flex;
+    justify-content: center;
     background-color: lightseagreen;
-    bottom: 0;
+    width: 100vw;
+    margin-top: auto;
+    height: 10vh;
 }
 
 .footer p{
     margin: 0.4rem 0.8rem;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    padding: 3vh;
 }
+

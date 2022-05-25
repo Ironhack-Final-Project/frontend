@@ -20,10 +20,16 @@
   border: black solid 1px;
 }
 
+.react-simple-scheduler .body .event{
+  background-color: rgb(149, 64, 64) !important;
+}
 
-  .react-simple-scheduler .body .event{
-    background-color: rgb(149, 64, 64) !important;
-  }
 .event{
   margin: 0rem 0.3rem !important;
 }
+
+.routes-navbar-container{
+  min-height: 90vh
+}
+
+
