@@ -48,7 +48,8 @@ const CreateEvent = (props) => {
         navigate("/events");
       })
       .catch((error) => {
-        const errorDescription = error.response.data;
+        console.log(error)
+        const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
   };

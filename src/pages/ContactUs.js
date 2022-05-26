@@ -10,7 +10,7 @@ function ContactUs() {
         <h5>Send a Mail</h5>
 
         <form action="mailto:puppy-palace@mail.com" method="POST">
-          <button type="submit">Mail</button>
+          <button className="submit-btn" type="submit">Mail</button>
         </form>
       </div>
     </>
