@@ -4,6 +4,9 @@ import "./EventPageList.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate, NavLink } from "react-router-dom";
+import dogsInARow from "../images/dogs-in-a-row.jpeg"
+import dogsInCircle from "../images/dogs-in-circle.jpeg"
+import bnwDog from "../images/bnwDog.jpg"
 
 function EventListPage(props) {
   const [userId, setUserId] = useState(null);
@@ -45,21 +48,25 @@ function EventListPage(props) {
   };
 
   return (
+    <div className="events-page" >
+      <h1>Classes</h1>
+    
     <div className="events-list">
-      <h1>Events</h1>
+      
       {props.allEvents === null ? (
         <p>Loading...</p>
       ) : (
         props.allEvents.map((element) => {
           return (
-            <div className="event-element">
+            <div className="event-element"> 
+            <img src={bnwDog}></img>
               <h2>{element.name}</h2>
               <p>{element.date}</p>
-              <p>Description: {element.description}</p>
-              <p>Price: {element.cost}€</p>
-              <NavLink to={`/events/${element._id}`}>More details</NavLink><br/>
+              <p> {element.description}</p>
+              {/* <p>Price: {element.cost}€</p> */}
+              <NavLink className="nav-link" to={`/events/${element._id}`}>More details</NavLink><br/>
 
-              {userId === null ? (
+              {/* {userId === null ? (
                 <button onClick={()=>{navigate("/login")}}>Login to Attend</button>
               ) : element.attendees.find(
                   (attending) => attending._id === userId._id
@@ -79,7 +86,7 @@ function EventListPage(props) {
                 >
                   Unattend
                 </button>
-              )}
+              )} */}
 
               {/* <div className="attendees">
                 <h4>Attending:</h4>
@@ -95,6 +102,7 @@ function EventListPage(props) {
           );
         })
       )}
+    </div>
     </div>
   );
 }

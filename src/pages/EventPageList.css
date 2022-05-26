@@ -1,8 +1,102 @@
-.event-element{
-    background-color: #064663;
-    margin: 2rem 8rem;
-    padding: 1rem;
-    border: solid black 1px;
+.events-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.event-element {
+    display: block;
+    max-height: 50vh;
+    width: 28vw;
+    margin: 3% 2%;
+        /* width: 22vw;
+        margin: 1rem;
+        padding: 1rem 2rem;
+        border: solid 3px #041C32;
+        background-color: #1c3956; */
+    }
+    
+.events-page h1{
+font-size: 5rem;
+font-weight: 700;
+margin-top: 1rem;
+margin-bottom: 0;
+color: #041C32;
+/* letter-spacing:  0.2rem; */
+}
+
+.events-page img{
+    position: relative;
+    display: block;
+    height: 50vh;
+    width: 28vw;
+    object-fit: cover ;
+    /* margin: 2rem 0rem; */
+    opacity: 0.8;
+}
+
+.event-element h2{
+    position: relative;
+   padding: 0;
+   margin: 0;
+   bottom: 94%;
+   font-size: 3rem;
+   font-weight: 200;
+   color: white;
+  
+}
+
+.event-element p{
+    position: relative;
+    bottom: 70%;
+}
+
+.event-element .nav-link {
+    position: relative;
+    bottom: 45%;
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;
+    padding: 0.5rem 2rem;
+    /* border: #041C32 solid 3px; */
+    background-color: #041C32;
+    border-radius: 25px;
+}
+
+.event-element .nav-link:hover {
+    position: relative;
+    bottom: 45%;
+    text-decoration: none;
+    color: #041C32;
+    font-size: 1.4rem;
+    padding: 0.5rem 2rem;
+    /* border: #041C32 solid 3px; */
+    background-color: white;
+    border-radius: 25px;
+}
+
+.events-element:hover img{
+    position: relative;
+    display: block;
+    height: 52vh;
+    width: 30vw;
+    object-fit: cover ;
+    /* margin: 2rem 0rem; */
+    opacity: 0.8;
+    background-color: black;
+}
+
+.event-element:hover {
+    display: block;
+    height: 52vh;
+    width: 30vw;
+    /* margin: 3% 2%; */
+    background-color: black;
+}
+
+.event-element:hover p{
+    position: relative;
+    bottom: 70%;
+    font-weight: 600;
 }
 
 .attendees{

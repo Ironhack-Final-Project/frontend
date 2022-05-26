@@ -1,0 +1,46 @@
+video{
+    width: 100%;
+    height: 90vh;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+
+}
+
+.homepage h1{
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translate(-50%, -50%);
+    font-size: 6rem;
+    font-weight: 300;
+    color: #041C32;
+}
+
+#book-class-btn{
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    border: #041C32 solid 3px;
+    border-radius: 20px;
+    padding: 0.8rem 2rem;
+    /* background-color: #064663; */
+}
+
+#book-class-btn:hover{
+    background-color: #041C32;
+    color: white;
+    /* font-weight: 200; */
+    padding: 1rem 2.5rem;
+}
+
+/* .homepage{
+    text-align: center;
+    align-items: center;
+} */

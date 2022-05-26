@@ -1,6 +1,6 @@
 .navbar-left{
-    width: 30%;
-    justify-content: space-evenly;
+    width: 50%;
+    justify-content: flex-start;
     display: flex;
     align-items: center;
 }
@@ -8,7 +8,7 @@
 .navbar-right{
     display: flex;
     flex-direction:row;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
     width: 40%;
     min-width: 10%
@@ -19,8 +19,9 @@
     justify-content: space-between;
     align-items: center;
     background-color: #041C32;
-    padding: 1rem;
+    padding: 0.5rem;
     color: white;
+    max-height: 5vh;
 }
 
 .profile-div{
@@ -51,8 +52,10 @@
 .navbar a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.5rem;
+    font-weight: 300;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    max-height: 5vh;
 }
 
 
