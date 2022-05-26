@@ -20,9 +20,10 @@
     align-items: center;
     background-color: #041C32;
     padding: 0.5rem;
-    color: white;
-    max-height: 5vh;
+    color: white !important;
 }
+
+
 
 .profile-div{
     max-width: 50%;
@@ -37,7 +38,12 @@
     width: 15%;
     aspect-ratio: 1;
     border-radius: 50%;
-    margin: 20px 10px;
+    padding: .1rem;
+}
+
+.navbar a:hover{
+  background: white;
+  color: black !important;
 }
 
 
@@ -45,7 +51,7 @@
     color: white;
     background: none;
     border: none;
-    font-weight: bold;
+    font-family: 'Comfortaa', sans-serif;
     font-size: 1.5rem;
 }
 
@@ -53,9 +59,17 @@
     color: white;
     text-decoration: none;
     font-weight: 300;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     padding: 0.5rem;
     max-height: 5vh;
+}
+
+.navbar-right button:hover{
+    cursor: pointer;
+}
+
+.error-message{
+    text-align: center; 
 }
 
 

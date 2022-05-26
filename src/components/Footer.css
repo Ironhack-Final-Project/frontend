@@ -1,17 +1,18 @@
 .footer{
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #041C32;
-    max-height: 3vh;
+    min-height: 8vh;
+    margin: auto;
 }
 
 .footer p{
-    padding: 0rem 0.8rem !important;
     margin: 0 !important;
-    font-size: 0.8rem;
-   font-weight: 300;
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 2rem; 
     color: white;
-    max-height: 3vh;
     text-decoration: none !important;
 }
 

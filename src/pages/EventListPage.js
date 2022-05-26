@@ -4,8 +4,6 @@ import "./EventPageList.css";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate, NavLink } from "react-router-dom";
-import dogsInARow from "../images/dogs-in-a-row.jpeg"
-import dogsInCircle from "../images/dogs-in-circle.jpeg"
 import bnwDog from "../images/bnwDog.jpg"
 
 function EventListPage(props) {

@@ -22,12 +22,12 @@ const Navbar = (() => {
                     <>
                         <div className='profile-div'>
                             <img src={user.imageUrl} alt={user.username} />
-                            <div class="navbar-drop">
-                                <div class="dropdown">
-                                    <button class="dropbtn">{user.username}
-                                        <i class="fa fa-caret-down"></i>
+                            <div className="navbar-drop">
+                                <div className="dropdown">
+                                    <button className="dropbtn">{user.username}
+                                        <i className="fa fa-caret-down"></i>
                                     </button>
-                                    <div class="dropdown-content">
+                                    <div className="dropdown-content">
                                         <NavLink to='/profile-page'>Your Profile</NavLink>
                                         {user.isAdmin ?
                                             <>

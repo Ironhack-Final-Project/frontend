@@ -1,12 +1,12 @@
-import {useContext, useEffect, useState} from 'react'
-import {AuthContext} from '../context/auth.context'
-import {uploadImage} from '../components/utitlityFunctions'
+import { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../context/auth.context'
+import { uploadImage } from '../components/utitlityFunctions'
 import { useNavigate, NavLink } from 'react-router-dom'
-import axios  from 'axios'
+import axios from 'axios'
 import './ProfilePage.css'
 
-const ProfilePage = ( (props) => {
-    const {isLoggedIn, user, logOutUser} = useContext(AuthContext)
+const ProfilePage = ((props) => {
+    const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
     const [name, setName] = useState("");
     const [dogs, setDogs] = useState([]);
     const [breed, setBreed] = useState("");
@@ -16,8 +16,8 @@ const ProfilePage = ( (props) => {
     const navigate = useNavigate()
     console.log(dogs)
 
-    useEffect(()=>{
-        if (user === null){
+    useEffect(() => {
+        if (user === null) {
             return
         } else {
             updateUser()
@@ -26,14 +26,14 @@ const ProfilePage = ( (props) => {
 
     const handlePostSubmit = ((e) => {
         e.preventDefault()
-        
+
         const storedToken = localStorage.getItem('authToken')
 
         const requestBody = { user, name, breed, imageUrl }
 
         console.log(user)
         axios.put(`${process.env.REACT_APP_API_URL}/user/${user._id}/add-dog`, requestBody
-        // { headers: { Authorization: `Bearer ${storedToken}`}}
+            // { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
                 console.log(response)
@@ -47,11 +47,11 @@ const ProfilePage = ( (props) => {
             })
     })
     const handleFileUpload = (e) => {
-    
+
         const uploadData = new FormData();
 
         uploadData.append("imageUrl", e.target.files[0]);
-    
+
         uploadImage(uploadData)
             .then(response => {
                 console.log("response is: ", response);
@@ -60,9 +60,9 @@ const ProfilePage = ( (props) => {
             .catch(err => console.log("Error while uploading the file: ", err));
     };
 
-    const updateUser = (()=>{
+    const updateUser = (() => {
         axios.get(`${process.env.REACT_APP_API_URL}/user/${user._id}`)
-            .then((response)=>{
+            .then((response) => {
                 setDogs(response.data.dogs)
                 setEvents(response.data.eventsAttending)
             })
@@ -77,76 +77,86 @@ const ProfilePage = ( (props) => {
                 let dogs = response.data.dogs
                 const eventsAttending = response.data.eventsAttending
                 dogs.splice(index, 1)
-                axios.put(`${process.env.REACT_APP_API_URL}/user/${user._id}`, {dogs, eventsAttending})
-                .then(()=> {
-                    updateUser()
-                })
+                axios.put(`${process.env.REACT_APP_API_URL}/user/${user._id}`, { dogs, eventsAttending })
+                    .then(() => {
+                        updateUser()
+                    })
             })
             .catch(err => console.log(err))
-            
+
     })
 
     return (
         <div className="profile-page">
             <div className="profile-page-left">
-                {user ? 
-                <>
-                <img src={user.imageUrl} alt={user.username}/> 
-                <h3>Welcome {user.username}</h3>
-                <p><strong>Account type:</strong> {user.isAdmin ? "Admin": "Normal"}</p>
-                <p><strong>Events your attending:</strong></p>
-                    {events ? events.map(event => {
-                        //template can add navlink's or whatever
-                        return (
-                        <>
-                            <NavLink to={`/events/${event._id}`}>{event.name}</NavLink>
-                        </>)
-                    }): ''}
-                </> : ""}
+                {user ?
+                    <>
+                        <h3>Welcome {user.username}</h3>
+                        <img src={user.imageUrl} alt={user.username} />
+                        <p><strong>Account type:</strong> {user.isAdmin ? "Admin" : "Normal"}</p>
+                        <p><strong>Events your attending:</strong></p>
+                        <ul>
+
+                            {events ? events.map(event => {
+                                //template can add navlink's or whatever
+                                return (
+                                    <>
+                                        <li className='event'><NavLink to={`/events/${event._id}`}>{event.name}</NavLink></li>
+                                    </>)
+                            }) : ''}
+                        </ul>
+                    </> : ""}
                 {/* <NavLink to='/edit-profile'>Edit Profile Details</NavLink> */}
             </div>
 
-            <div className="profile-page-left">
+            <div className="profile-page-right">
                 <h4>Your dogs:</h4>
-                    <div className='dogs'>
+                <div className='dogs'>
 
-                    {dogs.length ?dogs.map( (dog, index) =>
-                    <div className="dog">
-                        <img src={dog.imageUrl} alt={dog.name} />
-                         <div className='dog-text'>
-                            <p><strong>Name:</strong> {dog.name}</p> 
-                            <p><strong>Breed:</strong> {dog.breed}</p> 
+                    {dogs.length ? dogs.map((dog, index) =>
+                        <div className="dog">
+                            <img src={dog.imageUrl} alt={dog.name} />
+                            <p><strong>Name:</strong> {dog.name}</p>
+                            <p><strong>Breed:</strong> {dog.breed}</p>
                             <a href='#' onClick={(() => deleteDog(index))}>Remove</a>
                         </div>
-                    </div>
                     )
-                    : <p>You don't have any registered dogs</p>}
-                    </div>
-                
+                        : <p>You don't have any registered dogs</p>}
+                </div>
+
                 <h4>Register a dog:</h4>
                 <form onSubmit={handlePostSubmit}>
-                    <label><strong>Name:</strong></label><br/>
-                    <input
-                        type="name"
-                        name="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    /><br />
-                    <label><strong>Breed:</strong></label><br/>
-                    <input
-                        type="breed"
-                        name="breed"
-                        value={breed}
-                        onChange={(e) => setBreed(e.target.value)}
-                    /><br />
-                    <label><strong>Upload Image:</strong></label><br/>
-                    <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
-                    <button type="submit">Register</button>
+                    <div class="dog-form">
+                        <div>
+                            <label><strong>Name:</strong></label>
+                            <input
+                                type="name"
+                                name="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            /><br />
+                        </div>
+                        <div>
+                            <label><strong>Breed:</strong></label>
+                            <input
+                                type="breed"
+                                name="breed"
+                                value={breed}
+                                onChange={(e) => setBreed(e.target.value)}
+                            />
+                            <br />
+                        </div>
+                        <div>
+                            <label><strong>Upload Image:</strong></label>
+                            <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
+                        </div>
+                    </div>
+                            <button className='submit-btn' type="submit">Register</button>
                 </form>
             </div>
         </div>
 
-    )    
+    )
 })
 
 

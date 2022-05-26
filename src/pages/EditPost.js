@@ -9,7 +9,7 @@ const CreatePost = ((props) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const {feedId} = useParams()
-    const [title, setTitle] = useState('')
+    const [title, setTitle] = useState(undefined)
     const [content, setContent] = useState('')
     const [imageUrl, setImageUrl] = useState('');
     const [postDetails, setPostDetails] = useState('')
@@ -51,6 +51,12 @@ const CreatePost = ((props) => {
                 setContent('')
                 setImageUrl('')
             })
+            .catch( error => {
+                console.log(error)
+                const errorDescription = error.response.data;
+                console.log(errorDescription)
+                setErrorMessage(errorDescription);
+            })
     })
 
     const handleFileUpload = (e) => {
@@ -69,32 +75,41 @@ const CreatePost = ((props) => {
 
     return (
         <>
+        <div className="create-post">
             <h1>Edit a blog post</h1>
 
             {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
 
-            {title !== '' ? (
+            {title !== undefined ? (
 
-            
-            <form onSubmit={handleEditSubmit}>
-                <label>Post Title:</label>
-                <input
-                    type="title"
-                    name="title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                /><br />
-                <label>Post Content:</label>
-                <textarea
-                    type="content"
-                    name="content"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
-                /><br />
-                <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
+                <form onSubmit={handleEditSubmit}>
+                    <div className='flex-form'>
+                        <div className="flex-col">
+                            <label>Title:</label><br />
+                            <input
+                                type="title"
+                                name="title"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                            /><br />
 
-                <button type="submit">Submit</button>
-            </form>) : "loading"}
+                            <label>Upload Image:</label><br />
+                            <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
+                        </div>
+                        <div className="flex-col">
+                            <label>Content:</label><br />
+                            <textarea
+                                className='content'
+                                type="content"
+                                name="content"
+                                value={content}
+                                onChange={(e) => setContent(e.target.value)}
+                            /><br />
+                        </div>
+                    </div>
+                    <button className="submit-btn" type="submit">Submit</button>
+                </form>) : "loading"}
+        </div>
         </>
     )
 })

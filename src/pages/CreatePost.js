@@ -43,7 +43,8 @@ const CreatePost = ((props) => {
                 setEvent('')
             })
             .catch((error) => {
-                const errorDescription = error.response.data;
+                const errorDescription = error.response.data.message;
+                console.log(errorDescription)
                 setErrorMessage(errorDescription);
             })
     })
@@ -105,6 +106,7 @@ const CreatePost = ((props) => {
                 <div className="flex-col">
                     <label>Post Content:</label><br/>
                     <textarea
+                        className='content'
                         type="content"
                         name="content"
                         value={content}
