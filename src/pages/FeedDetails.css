@@ -22,7 +22,8 @@
 }
 
 .feed-details img{
-    width: 80%;
+    width: 40%;
+    margin: 0 auto 4% auto;
 }
 
 .feed-details-left{
@@ -48,4 +49,8 @@
     text-align: left;
     padding: 3rem;
     border-left: #041C32 1px solid;
+}
+.feed-image {
+    display: flex;
+    justify-content: center;
 }

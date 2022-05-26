@@ -32,7 +32,9 @@ return(
                       </div>
                         <p className="feed-content">{feedDetails.content}</p>
                         {feedDetails.imageUrl ? 
-                        <img alt={feedDetails.title} src={feedDetails.imageUrl} /> :
+                        <div className="feed-image">
+                        <img alt={feedDetails.title} src={feedDetails.imageUrl} />
+                        </div> :
                         ""
                         // replace with stock imaae
                         }
