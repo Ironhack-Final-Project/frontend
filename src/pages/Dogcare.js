@@ -10,6 +10,7 @@ function DogCare(){
   const [dogcare, setDogcare] = useState([])
   const [arr, setArr] = useState([])
   const {user} = useContext(AuthContext)
+  const storedToken = localStorage.getItem('authToken')
 
   useEffect(()=>{
     if (user === null){
@@ -47,7 +48,9 @@ function DogCare(){
 };
 
   const addDogcare = (object)=>{
-      axios.put(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}/add-dogcare`, object)
+      axios.put(`${process.env.REACT_APP_API_URL}/auth/user/${user._id}/add-dogcare`, 
+      object,
+      { headers: { Authorization: `Bearer ${storedToken}` } })
       .then(response=>{
           console.log("adding dogcare successful", response)
       })

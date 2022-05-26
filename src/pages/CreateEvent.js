@@ -49,7 +49,7 @@ const CreateEvent = (props) => {
       })
       .catch((error) => {
         console.log(error)
-        const errorDescription = error.response.data.message;
+        const errorDescription = error.response.data;
         setErrorMessage(errorDescription);
       });
   };
@@ -152,12 +152,14 @@ const CreateEvent = (props) => {
                 min="2021-01-01T00:00"
                 max="2060-06-14T00:00"
               ></input><br/>
-              <button className="submit-btn" type="submit">Submit</button>
+          <label>Image:</label>
+                <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
             </div>
           </div>
           <br />
-          <label>Image:</label>
-                <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
+          <div className="btn-div">
+              <button className="submit-btn event-btn" type="submit">Submit</button>
+          </div>
 
         </form>
       </div>

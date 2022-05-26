@@ -95,6 +95,7 @@ const CreatePost = ((props) => {
 
                             <label>Upload Image:</label><br />
                             <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
+                            <button className="submit-btn" type="submit">Submit</button>
                         </div>
                         <div className="flex-col">
                             <label>Content:</label><br />
@@ -107,7 +108,6 @@ const CreatePost = ((props) => {
                             /><br />
                         </div>
                     </div>
-                    <button className="submit-btn" type="submit">Submit</button>
                 </form>) : "loading"}
         </div>
         </>

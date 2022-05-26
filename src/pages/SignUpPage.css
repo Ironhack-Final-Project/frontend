@@ -1,0 +1,29 @@
+.sign-up-content{
+    margin-top: 30px;
+    display: flex;
+    width: 90%;
+    margin: 3% auto;
+    justify-content:center;
+}
+
+.sign-up-content label{
+    font-size: 1.4rem;
+}
+
+.flex-col form input{
+    border-radius: 25px;
+    padding: 0.5rem;
+    width: 70%;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.flex-col form {
+    text-align: left;
+}
+
+.sign-up-dog{
+    border-radius: 15px;
+    width: 70%;
+}

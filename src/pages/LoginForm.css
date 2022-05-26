@@ -1,0 +1,33 @@
+.login-form input{
+    border-radius: 25px;
+    padding: 0.5rem;
+    width: 90%;
+    margin: 1rem 1rem;
+    font-size: 1.2rem;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.login-form{
+    text-align: left;
+    margin-top: 6rem;
+}
+
+
+.input-login{
+    margin: 0 auto;
+    width: 20%;
+}
+
+.input-login label{
+    font-size: 1.5rem;
+}
+
+.btn-div{
+    display: flex;
+    justify-content: center;
+}
+
+#signUp{
+    font-size: 1.2rem;
+    margin-top: 4rem;
+}

@@ -13,6 +13,7 @@ const ProfilePage = ((props) => {
     const [changeUser, setChangeUser] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [events, setEvents] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
     const navigate = useNavigate()
     console.log(dogs)
 
@@ -44,6 +45,10 @@ const ProfilePage = ((props) => {
                 setName('')
                 setBreed('')
                 setImageUrl('')
+            })
+            .catch( err => {
+                console.log(err)
+                setErrorMessage(err.response.data)
             })
     })
     const handleFileUpload = (e) => {
@@ -126,7 +131,8 @@ const ProfilePage = ((props) => {
 
                 <h4>Register a dog:</h4>
                 <form onSubmit={handlePostSubmit}>
-                    <div class="dog-form">
+                    {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
+                    <div className="dog-form">
                         <div>
                             <label><strong>Name:</strong></label>
                             <input
