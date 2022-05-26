@@ -63,3 +63,6 @@
   height: auto !important;
 }
 
+.react-simple-scheduler .body .schedule th{
+  z-index: 0 !important;
+}

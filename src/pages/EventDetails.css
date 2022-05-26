@@ -1,28 +1,140 @@
 .event-details-container{
-    display: flex;
-    margin: 0 auto;
-    width: 90%;
+    display: block;
+    margin: 0;
     justify-content: space-evenly;
+}
+.event-details-container img{
+    width: 100vw;
+    height: 90vh;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: 0.5;
+}
+.event-details-container h1{
+    position: absolute;
+    font-size: 4rem;
+    font-weight: 300;
+    top: 15vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+.event-details-container .description{
+    position: absolute;
+    font-size: 1.1rem;
+    font-weight: 400;
+    top: 35vh;
+    left: 10vw;
+    /* transform: translate(-50%, -50%); */
+    max-width: 40vw;
+    text-align: left
+
 }
 
 .event-dogs{
  display: flex;
- width: 90%;
+ width: 50%;
+ max-height: 8vh;
  justify-content: space-around;
- margin: 0 auto;
- flex-wrap: wrap;
+ justify-content:left;
+align-items: center;
+border-bottom: solid 1px ;
+
 }
 
-.event-details-right, .event-details-left{
-    width: 40%
+
+.event-details-right{
+    position: absolute;
+    left: 70vw;
+    top: 32vh;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: left;
+    padding: 3rem;
+    border-left: #041C32 1px solid;
 }
 
-.event-dog{
-    width: 40%;
+.event-details-attending{
+    position: absolute;
     display: flex;
-    justify-content: space-evenly;
+    font-size: 0.8rem;
+    font-weight: 400;
+    top: 55vh;
+    left: 10vw;
+    /* transform: translate(-50%, -50%); */
+    width: 50vw;
+    text-align: left;
+    align-items: center;
+    height: 8vh;
+    margin: 1rem;
+    flex-direction: column;
+}
+
+.event-details-attending h4{
+padding: 0;
+margin-left: 1rem;
+font-size: 1rem;
+}
+
+.event-details-left{
+    position: absolute;
+    left: 10vw;
+    top: 20vh;
 }
 
 .event-dog img{
-    width: 30%;
+    width: auto;
+    height: 4vh;
+    aspect-ratio: 4/3.5;
+    object-fit: cover;
+    z-index: 2;
+    border-radius: 25px;
+}
+
+.event-dog{
+    display: flex;
+    max-width: 50vw;
+    flex-direction: column;
+}
+
+
+
+.dog-info{
+    display: flex;
+     padding: 0rem 0.8rem ;
+     align-items: center;
+}
+
+
+.attend-btn{
+    position: absolute;
+    text-decoration: none;
+    top: 32vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    
+}
+
+.attend-btn button{
+    padding: 0.6rem 4rem;
+    border: solid 1px;
+   border-radius: 25px;
+   background-color: #041C32;
+   color: white;
+   font-family: 'Comfortaa';
+   font-size: 1rem;
+}
+
+.attend-btn button:hover{
+    padding: 0.6rem 4rem;
+    border: solid 1px;
+   border-radius: 25px;
+   background-color: white;
+   color: #041C32;
+   font-family: 'Comfortaa';
+   font-size: 1rem;
+}
+.dog-name{
+    padding: 0rem 0.5rem;
 }

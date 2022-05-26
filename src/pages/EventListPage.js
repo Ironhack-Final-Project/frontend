@@ -57,10 +57,10 @@ function EventListPage(props) {
         props.allEvents.map((element) => {
           return (
             <div className="event-element"> 
-            <img src={bnwDog}></img>
+            <img src={element.imageUrl}></img>
               <h2>{element.name}</h2>
-              <p>{element.date}</p>
-              <p> {element.description}</p>
+              {/* <p>{element.date}</p>
+              <p> {element.description}</p> */}
               {/* <p>Price: {element.cost}€</p> */}
               <NavLink className="nav-link" to={`/events/${element._id}`}>More details</NavLink><br/>
 

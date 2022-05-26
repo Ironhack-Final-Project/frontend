@@ -19,7 +19,6 @@
     justify-content: space-between;
     align-items: center;
     background-color: #041C32;
-    padding: 0.5rem;
     color: white !important;
 }
 
@@ -59,7 +58,7 @@
     color: white;
     text-decoration: none;
     font-weight: 300;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 0.5rem;
     max-height: 5vh;
 }
