@@ -46,7 +46,7 @@
     margin: 1rem 0;
 }
 
-.flex-col select{
+.flex-col select, .flex-col form select{
     margin: 1rem 0;
     padding: 0.6rem 2rem;
     border-radius: 20px;
@@ -54,7 +54,7 @@
     font-family: 'Comfortaa', sans-serif;
 }
 
-.flex-col label{
+.flex-col label, .flex-col form select{
     margin: 2rem 0;
 }
 

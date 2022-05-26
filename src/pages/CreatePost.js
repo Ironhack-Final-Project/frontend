@@ -43,8 +43,8 @@ const CreatePost = ((props) => {
                 setEvent('')
             })
             .catch((error) => {
-                const errorDescription = error.response.data.message;
-                console.log(errorDescription)
+                console.log(error)
+                const errorDescription = error.response.data;
                 setErrorMessage(errorDescription);
             })
     })
@@ -70,7 +70,7 @@ const CreatePost = ((props) => {
             <h1>Create a blog post</h1>
 
             {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
-
+            
             <form onSubmit={handlePostSubmit}>
             <div className='flex-form'>
             <div className="flex-col">
@@ -102,6 +102,7 @@ const CreatePost = ((props) => {
 
                 <label>Upload Image:</label><br/>
                 <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
+                <button className="submit-btn"type="submit">Submit</button>
                 </div>
                 <div className="flex-col">
                     <label>Post Content:</label><br/>
@@ -114,7 +115,6 @@ const CreatePost = ((props) => {
                         /><br />
                     </div>
                     </div>
-                <button className="submit-btn"type="submit">Submit</button>
             </form>
         </div>
     )

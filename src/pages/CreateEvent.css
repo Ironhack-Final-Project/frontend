@@ -1,8 +1,8 @@
 .create-event form {
-    padding: 4rem 0;
+    padding: 3rem 0;
     margin: 0 auto;
     width: 60%;
-    height: 60%;
+    height: 65%;
 }
 
 .create-event{
@@ -31,10 +31,15 @@
     width: 30%;
 }
 
+.error-message{
+    color: rgb(235, 30, 30);
+    font-weight: bold;
+}
+
 .description{
     border-radius: 10px;
     width : 80%;
-    height : 20%;
+    height : 16%;
     padding: 0.3rem;
     font-family: 'Comfortaa', sans-serif;
     
@@ -60,4 +65,10 @@
     padding: 0.6rem 2rem;
     background: #fff;
     font-family: 'Comfortaa', sans-serif;
+}
+
+.btn-div{
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
