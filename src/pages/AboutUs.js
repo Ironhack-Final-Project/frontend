@@ -2,7 +2,7 @@ function AboutUs(){
 return (
   <div className="about-us">
     <h1>About Us</h1>
-    <p>
+    <p style={{width: 40 + "%", margin: "auto"}}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a mauris
       vel massa consequat semper. Nam consequat non quam in dapibus. Aenean in
       lorem efficitur, iaculis leo sed, pulvinar urna. Curabitur quis nulla
