@@ -1,0 +1,61 @@
+
+.create-post form {
+    padding: 3rem;
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+}
+
+.create-post{
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.create-post input{
+    width: 60%;
+}
+
+.create-post h1{
+    text-align: center;
+}
+
+.create-post input{
+    border-radius: 25px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+}
+
+.flex-form{
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+.flex-col{
+    width: 50%;
+}
+
+.flex-col textarea{
+    border-radius: 10px;
+    width : 150%;
+    height : 100%;
+    padding: 0.3rem;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.flex-col select{
+    margin: 1rem 0;
+    padding: 0.6rem 2rem;
+    border-radius: 20px;
+}
+
+.flex-col label{
+    margin: 2rem 0;
+}
+
+.submit-btn{
+    border-radius: 20px;
+    padding: 0.6rem 2rem;
+}
+

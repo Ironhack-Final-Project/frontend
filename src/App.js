@@ -87,7 +87,7 @@ function App() {
         />
         <Route path="/feed/:feedId" element={<FeedDetailsPage />} />
         <Route
-          path="/createPost"
+          path="/create-post"
           element={
             <CreatePost allEvents={allEvents} callbackFetch={fetchPosts} />
           }
