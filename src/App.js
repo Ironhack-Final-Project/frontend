@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "./context/auth.context";
 import { useArrayState } from "@cubedoodl/react-simple-scheduler";
+import IsPrivate from "./components/IsPrivate";
 
 import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/SignUpPage";
@@ -74,7 +75,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
 
         {/* ///Main Pages/// */}
-        <Route path="/profile-page" element={<ProfilePage /> } />
+        <Route path="/profile-page" element={<IsPrivate><ProfilePage /></IsPrivate>} />
         <Route
           path="/events"
           element={
@@ -88,13 +89,13 @@ function App() {
         <Route path="/feed/:feedId" element={<FeedDetailsPage />} />
         <Route
           path="/create-post"
-          element={
+          element={<IsPrivate>
             <CreatePost allEvents={allEvents} callbackFetch={fetchPosts} />
-          }
+            </IsPrivate>}
         />
         <Route
           path="/edit-post/:feedId"
-          element={<EditPost posts={posts} callbackFetch={fetchPosts} />}
+          element={<IsPrivate><EditPost posts={posts} callbackFetch={fetchPosts} /></IsPrivate>}
         />
         <Route
           path="/scheduler"
@@ -107,16 +108,18 @@ function App() {
             />
           }
         />
-        <Route path="/dogcare" element={<DogCare />} />
-        <Route path="/createEvent" element={<CreateEvent />} />
+        <Route path="/dogcare" element={<IsPrivate><DogCare /></IsPrivate>} />
+        <Route path="/createEvent" element={<IsPrivate><CreateEvent /></IsPrivate>} />
         <Route path="/events/:eventId" element={<EventDetails fetchEvents={fetchEvents}/>} />
 
         {/* ///Footer Pages/// */}
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/copyright" element={<Copyright />} />
+        
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/overview" element={<OverviewDogcare selected={selected}
-              setSelected={setSelected}/>} />
+        
+        <Route path="/overview" element={<IsPrivate><OverviewDogcare selected={selected}
+              setSelected={setSelected}></OverviewDogcare></IsPrivate>} />
         
       </Routes>
 

@@ -15,10 +15,6 @@ const CreatePost = ((props) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const storedToken = localStorage.getItem('authToken') // is necessary?
-
-
-    console.log(props)
-    
     
     const handlePostSubmit = ((e) => {
         e.preventDefault()
@@ -44,7 +40,7 @@ const CreatePost = ((props) => {
             })
             .catch((error) => {
                 console.log(error)
-                const errorDescription = error.response.data.message;
+                const errorDescription = error.response.data;
                 setErrorMessage(errorDescription);
             })
     })
@@ -62,8 +58,6 @@ const CreatePost = ((props) => {
             })
             .catch(err => console.log("Error while uploading the file: ", err));
     };
-
-    console.log(event)
 
     return (
         <div className="create-post">

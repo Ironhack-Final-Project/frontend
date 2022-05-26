@@ -1,9 +1,9 @@
 // src/pages/LoginPage.js
 
-import { useContext, useState } from "react";
 import axios from "axios";
+import './LoginForm.css'
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { AuthContext } from '../context/auth.context'
 
 
@@ -45,27 +45,30 @@ function LoginPage(props) {
 
             {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
 
-            <form onSubmit={handleLoginSubmit}>
-                <label>Username:</label>
-                <input
-                    type="username"
-                    name="username"
-                    value={username}
-                    onChange={handleUsername}
-                />
+            <form className="login-form" onSubmit={handleLoginSubmit}>
+                <div className='input-login'>
+                    <label>Username:</label><br/>
+                    <input
+                        type="username"
+                        name="username"
+                        value={username}
+                        onChange={handleUsername}
+                    /><br/>
 
-                <label>Password:</label>
-                <input
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={handlePassword}
-                />
-
-                <button type="submit">Login</button>
+                    <label>Password:</label><br/>
+                    <input
+                        type="password"
+                        name="password"
+                        value={password}
+                        onChange={handlePassword}
+                    /><br/>
+                </div>
+                <div className="btn-div">
+                    <button className='submit-btn' type="submit">Login</button>
+                </div>
             </form>
 
-            <p>Don't have an account yet?</p>
+            <p id="signUp">Don't have an account yet?</p>
             <Link to={"/register"}> Sign Up</Link>
         </div>
     )

@@ -49,7 +49,7 @@ const CreateEvent = (props) => {
       })
       .catch((error) => {
         console.log(error)
-        const errorDescription = error.response.data.message;
+        const errorDescription = error.response.data;
         setErrorMessage(errorDescription);
       });
   };
