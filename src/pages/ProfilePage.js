@@ -116,8 +116,8 @@ const ProfilePage = ((props) => {
                     {dogs.length ? dogs.map((dog, index) =>
                         <div className="dog">
                             <img src={dog.imageUrl} alt={dog.name} />
-                            <p><strong>Name:</strong> {dog.name}</p>
-                            <p><strong>Breed:</strong> {dog.breed}</p>
+                            <p><strong>Name:</strong><br/> {dog.name}</p>
+                            <p><strong>Breed:</strong><br/>{dog.breed}</p>
                             <a href='#' onClick={(() => deleteDog(index))}>Remove</a>
                         </div>
                     )
