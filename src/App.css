@@ -9,9 +9,20 @@
   font-family: 'Comfortaa', sans-serif;
 }
 
-.react-simple-scheduler{
-  padding: 1rem 5rem;
-  background-color: rgb(222, 233, 233) !important;
+ .react-simple-scheduler{
+  margin: 0rem 10rem;
+  background-color: rgb(229, 228, 228) !important;
+  font-family: 'Comfortaa' !important;
+}
+.react-simple-scheduler .head{
+  margin: 0rem 10rem;
+  background-color: rgb(229, 228, 228) !important;
+  font-size: 1rem !important;
+  color: #041C32;
+}
+
+.react-simple-scheduler .head h1{
+  font-weight: 900 !important;
 }
 
 .react-simple-scheduler .body .schedule td.time{
@@ -24,10 +35,11 @@
 .react-simple-scheduler .body .schedule {
   background-color: rgb(255, 255, 255) !important;
   border: black solid 1px;
-}
+} 
 
 .react-simple-scheduler .body .event{
-  background-color: rgb(149, 64, 64) !important;
+  background-color: #041C32 !important;
+  color: rgb(229, 228, 228) !important;
 }
 
 .event{
@@ -38,4 +50,16 @@
   min-height: 91vh
 }
 
+
+.react-simple-scheduler .body .schedule th{
+  color: black;
+}
+
+.react-simple-scheduler .head button.today{
+  padding: 0.2rem;
+  border: #041C32 solid 2px !important;
+  font-weight: 400;
+  align-items: center;
+  height: auto !important;
+}
 

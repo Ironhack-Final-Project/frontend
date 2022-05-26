@@ -5,6 +5,7 @@ import {
   useArrayState,
 } from "@cubedoodl/react-simple-scheduler";
 import { useNavigate } from "react-router-dom";
+import "./Scheduler.css"
 
 
 function Calender(props) {
@@ -54,9 +55,9 @@ function Calender(props) {
         events={events}
         selected={props.selected}
         setSelected={props.setSelected}
-        onRequestAdd={(evt) => {
-            addEvent({...evt, name: "newEvent"})
-            }}
+        // onRequestAdd={(evt) => {
+        //     addEvent({...evt, name: "newEvent"})
+        //     }}
         onRequestEdit={(evt) => {navigate(`/events/${evt.id}`)}}
       />
     </>

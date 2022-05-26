@@ -87,9 +87,9 @@ color: #041C32;
 
 .event-element:hover {
     display: block;
-    height: 52vh;
+    /* height: 52vh;
     width: 30vw;
-    /* margin: 3% 2%; */
+    margin: 3% 2%; */
     background-color: black;
 }
 

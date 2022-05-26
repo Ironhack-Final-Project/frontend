@@ -21,6 +21,9 @@
     max-height: 30vh;
     aspect-ratio: 1;
 }
+body {
+    color: white
+}
 
 .dog img,
 .dog p,

@@ -9,41 +9,49 @@ import {
 function OverviewDogcare(props){
 const [events, setEvents, addEvent] = useArrayState([]);
 const hours =[];
-let arr= [];
+const [arr, setArr] = useState([]);
 // const date = new Date()
+let array = []
 
 // console.log(new Date(events[0].from).toString().slice(0,15))
 
 useEffect(()=>{
+  console.log("useeffect called")
     axios
       .get(`${process.env.REACT_APP_API_URL}/auth/users`)
       .then((response) => {
+        console.log("response.datat....", response.data)
            return response.data.map((element)=>{
+             console.log("element.dogcare...", element.dogcare)
               return  element.dogcare.map((element)=>{
                      return (
-                         arr.push(
-                         {
-                        name: element.owner,
-                        from: element.from? new Date(element.from) : null,
-                        to: element.to? new Date(element.to) : null,
-                        calendar: {name: "", enabled: true},
-                        repeat: 0, 
-                        dogs: element.dogs
-                        }
-                         )
+                       array.push({
+                          name: element.owner,
+                          from: element.from? new Date(element.from) : null,
+                          to: element.to? new Date(element.to) : null,
+                          calendar: {name: "", enabled: true},
+                          repeat: 0, 
+                          dogs: element.dogs
+                          }
+                       )
+                        //  arr.push(
+                         
+                        //  )
                      )
                 })
             })
             
       } )
       .then(response=>{
-      setEvents([...arr])
-    return
+        console.log("araaaaay", array)
+        setEvents(array)
       })
       .catch((e) => console.log("error getting projects from API...", e));
 
   // hours===null? getHours() : console.log("loaded hours")
 },[])
+
+
 
 
   arr.forEach((element)=>{
@@ -60,7 +68,8 @@ useEffect(()=>{
 
 
 
-console.log(hours)
+// console.log(arr)
+// console.log(events)
 
 
 return (
