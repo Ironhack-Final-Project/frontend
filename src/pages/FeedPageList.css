@@ -110,7 +110,7 @@ justify-content: center;
                   }
 
 .feed img{
-    filter:grayscale(80%);
+    filter:grayscale(50%);
     /* height: 30vh;
     width: 30vw; */
     object-fit: cover ;

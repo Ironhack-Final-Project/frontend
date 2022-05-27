@@ -5,11 +5,12 @@ import {
     Scheduler,
     useArrayState,
   } from "@cubedoodl/react-simple-scheduler";
+  import "./OverviewDogcare.css"
 
 function OverviewDogcare(props){
 const [events, setEvents, addEvent] = useArrayState([]);
-const hours =[];
-const [arr, setArr] = useState([]);
+const [hoursToday, setHoursToday] =useState([])
+const [hours, setHours] =useState([])
 // const date = new Date()
 let array = []
 const storedToken = localStorage.getItem('authToken')
@@ -37,9 +38,6 @@ useEffect(()=>{
                           dogs: element.dogs
                           }
                        )
-                        //  arr.push(
-                         
-                        //  )
                      )
                 })
             })
@@ -47,24 +45,38 @@ useEffect(()=>{
       } )
       .then(response=>{
         console.log("araaaaay", array)
-        setEvents(array)
+         setEvents(array)
+
+         array.forEach((element)=>{
+          console.log("calculating...")
+           const num = Number( (Number(new Date(element.to).toString().slice(16,18) + "." + new Date(element.to).toString().slice(19,21)) - Number(new Date(element.from).toString().slice(16,18)+"."+new Date(element.from).toString().slice(19,21))).toFixed(2))
+           console.log(num)
+         return setHours(preArr=>[...preArr, num])
+        })
+
+        array.forEach((element)=>{
+          if(new Date(element.from).toString().slice(0,15) === new Date().toString().slice(0,15)){
+            const num = Number( (Number(new Date(element.to).toString().slice(16,18) + "." + new Date(element.to).toString().slice(19,21)) - Number(new Date(element.from).toString().slice(16,18)+"."+new Date(element.from).toString().slice(19,21))).toFixed(2))
+            console.log(num)
+          return setHoursToday(preArr=>[...preArr, num])
+          }
+         
+        })
+
       })
       .catch((e) => console.log("error getting projects from API...", e));
+
 
   // hours===null? getHours() : console.log("loaded hours")
 },[])
 
 
 
+  
 
-  arr.forEach((element)=>{
-    console.log("calculating...")
-     const num = Number( (Number(new Date(element.to).toString().slice(16,18) + "." + new Date(element.to).toString().slice(19,21)) - Number(new Date(element.from).toString().slice(16,18)+"."+new Date(element.from).toString().slice(19,21))).toFixed(2))
-     console.log(num)
-   return hours.push(num)
-   
-  })
 
+console.log(hours)
+console.log(hoursToday)
 
 
   
@@ -96,16 +108,17 @@ return (
        {events.map((element)=>{
          {/* console.log(element) */}
        return (new Date(element.from).toString().slice(0,15) === new Date().toString().slice(0,15)? (
-         <div>
+         <div className="client-today">
          <p>{element.name}</p>
          {element.dogs.length? <p>Dogs: {element.dogs.length}x</p> : <p>Dogs: 1x</p> }
          <p>hours: {(Number(new Date(element.to).toString().slice(16,18)+"."+new Date(element.to).toString().slice(19,21)) - Number(new Date(element.from).toString().slice(16,18)+"."+new Date(element.from).toString().slice(19,21))).toFixed(2)}</p>
         <p>turnover: { ((Number(new Date(element.to).toString().slice(16,18)+"."+new Date(element.to).toString().slice(19,21)) - Number(new Date(element.from).toString().slice(16,18)+"."+new Date(element.from).toString().slice(19,21))).toFixed(2)*15) * (element.dogs.length? element.dogs.length : 1) }€</p>
-          <hr/>
+         
         </div>
          ) : null)
       })} 
-      {hours[0]===undefined||null? <p>Loading...</p> :<h5>Sum: {(hours.reduce((a,b)=> a + b, 0)*15).toFixed(2)}€</h5>}
+      {/* {hoursToday.length? <h5>Sum Today: {(hoursToday.reduce((a,b)=> a + b, 0)*15).toFixed(2)}€</h5> : <p>Sum Today: 0</p>}
+      {hours.length? <h5>Sum Week: {(hours.reduce((a,b)=> a + b, 0)*15).toFixed(2)}€</h5> : <p>Sum Week: 0</p>} */}
     </div>
   </>
 );
