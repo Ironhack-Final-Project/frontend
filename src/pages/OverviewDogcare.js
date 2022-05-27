@@ -12,13 +12,16 @@ const hours =[];
 const [arr, setArr] = useState([]);
 // const date = new Date()
 let array = []
+const storedToken = localStorage.getItem('authToken')
 
 // console.log(new Date(events[0].from).toString().slice(0,15))
 
 useEffect(()=>{
   console.log("useeffect called")
     axios
-      .get(`${process.env.REACT_APP_API_URL}/auth/users`)
+      .get(`${process.env.REACT_APP_API_URL}/auth/users`, 
+      { headers: { Authorization: `Bearer ${storedToken}`}}
+      )
       .then((response) => {
         console.log("response.datat....", response.data)
            return response.data.map((element)=>{
