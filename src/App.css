@@ -9,12 +9,13 @@
   font-family: 'Comfortaa', sans-serif;
 }
 
+
  .react-simple-scheduler{
   margin: 0rem 10rem;
   font-family: 'Comfortaa' !important;
 }
-.react-simple-scheduler .head{
-  margin: 0rem 10rem;
+.react-simple-scheduler .head {
+  margin: 0rem !important;
   background-color: rgba(168, 105, 105, 0.073) !important;
   font-size: 1rem !important;
   color: #041C32;
@@ -46,7 +47,8 @@
 }
 
 .routes-navbar-container{
-  min-height: 91vh
+  min-height: 92vh;
+  margin: none;
 }
 
 
