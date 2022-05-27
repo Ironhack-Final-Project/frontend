@@ -11,24 +11,23 @@ function EventDetails(props) {
   const [eventDetails, setEventDetails] = useState(null);
   const [userId, setUserId] = useState(null);
   const { user } = useContext(AuthContext);
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
 
     user === null ? console.log("user undefined") : setUserId(user);
-    fetchEvent() 
+    fetchEvent()
   }, [user]);
 
-  const fetchEvent =()=>{
+  const fetchEvent = () => {
     axios
-    .get(`${process.env.REACT_APP_API_URL}/events/${eventId}`)
-    .then((response) => {
-      console.log(response.data);
-      setEventDetails(response.data);
-    })
-    .catch((e) => {
-      console.log("error getting blog list...", e);
-    });
+      .get(`${process.env.REACT_APP_API_URL}/events/${eventId}`)
+      .then((response) => {
+        setEventDetails(response.data);
+      })
+      .catch((e) => {
+        console.log("error getting blog list...", e);
+      });
   }
 
 
@@ -38,14 +37,12 @@ const navigate = useNavigate();
         id: userId._id,
       })
       .then((response) => {
-        console.log(response.data);
         fetchEvent();
       })
       .catch((err) => console.log("error attending event...", err));
   };
 
   const attendEvent = (eventId) => {
-      console.log(userId)
     userId === null ? navigate("/login") : pushIdIntoEventArr(eventId);
   };
 
@@ -55,7 +52,6 @@ const navigate = useNavigate();
         id: userId._id,
       })
       .then((response) => {
-        console.log(response.data);
         fetchEvent();
       })
       .catch((err) => console.log("error attending event...", err));
@@ -67,72 +63,71 @@ const navigate = useNavigate();
         <p>Loading...</p>
       ) : (
         <div className='event-details-container' >
-        <img src={eventDetails.imageUrl}></img>
-         <p className="description">Description: <br/> {eventDetails.description}</p>
-        <h1>{eventDetails.name}</h1>
-         <div className="attend-btn">
-          {userId === null ? (
-            <button onClick={()=>{navigate("/login")}} className="submit-btn">Login to Attend</button>
+          <img alt="" src={eventDetails.imageUrl}></img>
+          <p className="description">Description: <br /> {eventDetails.description}</p>
+          <h1>{eventDetails.name}</h1>
+          <div className="attend-btn">
+            {userId === null ? (
+              <button onClick={() => { navigate("/login") }} className="submit-btn">Login to Attend</button>
             ) : eventDetails.attendees.find(
               (attending) => attending._id === userId._id
-              ) === undefined ? (
-                <button
-                  onClick={() => {
-                    attendEvent(eventDetails._id);
-                  }}
-                >
-                  Attend
-                </button>
-              ) : (
-                <button
+            ) === undefined ? (
+              <button
+                onClick={() => {
+                  attendEvent(eventDetails._id);
+                }}
+              >
+                Attend
+              </button>
+            ) : (
+              <button
                 onClick={() => {
                   unattendEvent(eventDetails._id);
                 }}
-                >
-                  Unattend
-                </button>
-              )}
-               </div>
+              >
+                Unattend
+              </button>
+            )}
+          </div>
           <div className="event-details-right">
             <p>Date: {eventDetails.from.slice(0, 10)}</p>
             <p>From: {eventDetails.from.slice(11, 16)} h</p>
             <p>To: {eventDetails.to.slice(11, 16)} h</p>
             <p>Price: {eventDetails.cost}€/h</p>
             <p>Location: {eventDetails.location}</p>
-            {eventDetails.repeat == 1 ? <p>Every Week</p> : null}
-            {eventDetails.repeat == 2 ? <p>Every Month</p> : null}
-             </div>
-           
-            
+            {eventDetails.repeat === 1 ? <p>Every Week</p> : null}
+            {eventDetails.repeat === 2 ? <p>Every Month</p> : null}
+          </div>
 
-         
+
+
+
           <div className="event-details-attending">
             <h3>Attending:</h3>
             {eventDetails.attendees.map((element) => {
               return (
                 <>
-                  
+
                   <div className="event-dogs">
-                  <h4>{element.username}</h4>
-                  {element.dogs.map((dog) => {
-                    console.log(dog)
-                    return (
+                    <h4>{element.username}</h4>
+                    {element.dogs.map((dog) => {
+                      return (
                         <div className="event-dog">
-                        <div className="dog-info">
-                        <img  src={dog.imageUrl} />
+                          <div className="dog-info">
+                            <img alt="" src={dog.imageUrl} />
                             <p className="dog-name">{dog.name}</p>
                             <p>({dog.breed})</p>
-                            </div>
-                            
+                          </div>
+
                         </div>
-                    )
-                  })}
+                      )
+                    })}
                   </div>
                 </>);
             })}
 
-           
-            </div>
+
+          </div>
         </div>
       )}
     </div>

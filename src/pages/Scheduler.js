@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {
-  Calendar,
-  Scheduler,
-  useArrayState,
-} from "@cubedoodl/react-simple-scheduler";
+import { Scheduler, useArrayState } from "@cubedoodl/react-simple-scheduler";
 import { useNavigate } from "react-router-dom";
 import "./Scheduler.css"
 
 
 function Calender(props) {
-//   const [selected, setSelected] = useState(new Date());
-  const [events, setEvents, addEvent] = useArrayState([]);
+  const [events, setEvents] = useArrayState([]);
   const [arr, setArr] = useState([])
   const navigate = useNavigate()
 
@@ -47,17 +42,10 @@ function Calender(props) {
 
   return (
     <>
-      {/* <Calendar
-        selected={selected}
-        setSelected={setSelected}
-      /> */}
       <Scheduler
         events={events}
         selected={props.selected}
         setSelected={props.setSelected}
-        // onRequestAdd={(evt) => {
-        //     addEvent({...evt, name: "newEvent"})
-        //     }}
         onRequestEdit={(evt) => {navigate(`/events/${evt.id}`)}}
       />
     </>

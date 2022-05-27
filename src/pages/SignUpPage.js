@@ -24,14 +24,11 @@ function SignUpPage(props) {
       delete requestBody.imageUrl
     }
 
-    console.log(requestBody)
-
     axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, requestBody)
       .then((response) => {
         navigate('/login');
       })
       .catch((error) => {
-        console.log(error.message)
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       })
@@ -45,7 +42,6 @@ function SignUpPage(props) {
 
     uploadImage(uploadData)
       .then(response => {
-        console.log("response is: ", response);
         setImageUrl(response.fileUrl);
       })
       .catch(err => console.log("Error while uploading the file: ", err));
@@ -99,7 +95,7 @@ function SignUpPage(props) {
 
         </div>
         <div className="flex-col">
-          <img className="sign-up-dog" src={wavingDog} alt="a dog waving"/>
+          <img className="sign-up-dog" src={wavingDog} alt="a dog waving" />
           <p>Already have account?</p>
           <Link to={"/login"}> Login</Link>
 

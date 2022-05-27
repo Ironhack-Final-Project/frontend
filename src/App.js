@@ -3,9 +3,6 @@ import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useContext } from "react";
-import { AuthContext } from "./context/auth.context";
-import { useArrayState } from "@cubedoodl/react-simple-scheduler";
 import IsPrivate from "./components/IsPrivate";
 
 import ProfilePage from "./pages/ProfilePage";
@@ -30,10 +27,8 @@ import OverviewDogcare from "./pages/OverviewDogcare";
 function App() {
   const [posts, setPosts] = useState(null);
   const [allEvents, setAllEvents] = useState([]);
-  const { user } = useContext(AuthContext);
 
   const [selected, setSelected] = useState(new Date());
-  // const [events, setEvents, addEvent] = useArrayState([]);
 
   useEffect(() => {
     fetchPosts();

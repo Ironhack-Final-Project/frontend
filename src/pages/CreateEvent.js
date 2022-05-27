@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useContext } from "react";
-import { AuthContext } from "../context/auth.context";
 import { uploadImage } from "../components/utitlityFunctions";
-import { Calendar, Scheduler, useArrayState } from "@cubedoodl/react-simple-scheduler";
 import './CreateEvent.css'
 
 
@@ -18,21 +15,14 @@ const CreateEvent = (props) => {
   const [repeat, setRepeat] = useState(0);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [imageUrl, setImageUrl] = useState('')
-
-  const [selected, setSelected] = useState(new Date());
-  const [events, setEvents, addEvent] = useArrayState([]);
-
   const navigate = useNavigate();
 
 
 
   const handleEventSubmit = (e) => {
     e.preventDefault();
-
     const storedToken = localStorage.getItem('authToken')
-
     const requestBody = { name, description, from: new Date(from), to: new Date(to), cost, location, repeat, imageUrl };
-
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/events`,
@@ -40,31 +30,25 @@ const CreateEvent = (props) => {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => {
-        // axios.put(`${process.env.REACT_APP_API_URL}/events/pushScheduler`);
-        // props.setEvents((prevEvents) => {
-        //   console.log(response.data);
-        //   return response.data;
-        // });
         navigate("/events");
       })
       .catch((error) => {
-        console.log(error)
         const errorDescription = error.response.data;
         setErrorMessage(errorDescription);
       });
   };
   const handleFileUpload = (e) => {
 
-      const uploadData = new FormData();
+    const uploadData = new FormData();
 
-      uploadData.append("imageUrl", e.target.files[0]);
+    uploadData.append("imageUrl", e.target.files[0]);
 
-      uploadImage(uploadData)
-          .then(response => {
-              console.log("response is: ", response);
-              setImageUrl(response.fileUrl);
-          })
-          .catch(err => console.log("Error while uploading the file: ", err));
+    uploadImage(uploadData)
+      .then(response => {
+        console.log("response is: ", response);
+        setImageUrl(response.fileUrl);
+      })
+      .catch(err => console.log("Error while uploading the file: ", err));
   };
 
   return (
@@ -151,14 +135,14 @@ const CreateEvent = (props) => {
                 onChange={(e) => setTo(e.target.value)}
                 min="2021-01-01T00:00"
                 max="2060-06-14T00:00"
-              ></input><br/>
-          <label>Image:</label>
-                <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
+              ></input><br />
+              <label>Image:</label>
+              <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
             </div>
           </div>
           <br />
           <div className="btn-div">
-              <button className="submit-btn event-btn" type="submit">Submit</button>
+            <button className="submit-btn event-btn" type="submit">Submit</button>
           </div>
 
         </form>

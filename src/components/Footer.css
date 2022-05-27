@@ -1,4 +1,4 @@
-.footer{
+.footer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,16 +7,15 @@
     margin: auto;
 }
 
-.footer a{
+.footer a {
     margin: 0 !important;
     font-size: 1.2rem;
     font-weight: 300;
-    padding: 1rem; 
+    padding: 1rem;
     color: white;
     text-decoration: none !important;
 }
 
-.footer a:hover{
+.footer a:hover {
     text-decoration: underline;
 }
-

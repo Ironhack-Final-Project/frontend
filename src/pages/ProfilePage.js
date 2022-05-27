@@ -1,21 +1,18 @@
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../context/auth.context'
 import { uploadImage } from '../components/utitlityFunctions'
-import { useNavigate, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import axios from 'axios'
 import './ProfilePage.css'
 
 const ProfilePage = ((props) => {
-    const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const [name, setName] = useState("");
     const [dogs, setDogs] = useState([]);
     const [breed, setBreed] = useState("");
-    const [changeUser, setChangeUser] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [events, setEvents] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
-    const navigate = useNavigate()
-    console.log(dogs)
 
     useEffect(() => {
         if (user === null) {
@@ -27,27 +24,18 @@ const ProfilePage = ((props) => {
 
     const handlePostSubmit = ((e) => {
         e.preventDefault()
-
-        const storedToken = localStorage.getItem('authToken')
-
         const requestBody = { user, name, breed, imageUrl }
 
-        console.log(user)
-        axios.put(`${process.env.REACT_APP_API_URL}/user/${user._id}/add-dog`, requestBody
-            // { headers: { Authorization: `Bearer ${storedToken}`}}
-        )
+        axios.put(`${process.env.REACT_APP_API_URL}/user/${user._id}/add-dog`, requestBody)
             .then(response => {
-                console.log(response)
                 updateUser()
-                // navigate('/feed')
 
 
                 setName('')
                 setBreed('')
                 setImageUrl('')
             })
-            .catch( err => {
-                console.log(err)
+            .catch(err => {
                 setErrorMessage(err.response.data)
             })
     })
@@ -78,7 +66,6 @@ const ProfilePage = ((props) => {
 
         axios.get(`${process.env.REACT_APP_API_URL}/user/${user._id}/delete-dog`)
             .then((response) => {
-                console.log(response)
                 let dogs = response.data.dogs
                 const eventsAttending = response.data.eventsAttending
                 dogs.splice(index, 1)
@@ -103,7 +90,6 @@ const ProfilePage = ((props) => {
                         <ul>
 
                             {events ? events.map(event => {
-                                //template can add navlink's or whatever
                                 return (
                                     <>
                                         <li className='event'><NavLink to={`/events/${event._id}`}>{event.name}</NavLink></li>
@@ -111,7 +97,6 @@ const ProfilePage = ((props) => {
                             }) : ''}
                         </ul>
                     </> : ""}
-                {/* <NavLink to='/edit-profile'>Edit Profile Details</NavLink> */}
             </div>
 
             <div className="profile-page-right">
@@ -121,8 +106,8 @@ const ProfilePage = ((props) => {
                     {dogs.length ? dogs.map((dog, index) =>
                         <div className="dog">
                             <img src={dog.imageUrl} alt={dog.name} />
-                            <p><strong>Name:</strong><br/> {dog.name}</p>
-                            <p><strong>Breed:</strong><br/>{dog.breed}</p>
+                            <p><strong>Name:</strong><br /> {dog.name}</p>
+                            <p><strong>Breed:</strong><br />{dog.breed}</p>
                             <a href='#' onClick={(() => deleteDog(index))}>Remove</a>
                         </div>
                     )
@@ -131,7 +116,7 @@ const ProfilePage = ((props) => {
 
                 <h4>Register a dog:</h4>
                 <form onSubmit={handlePostSubmit}>
-                    {errorMessage ? <p className="error-message">{errorMessage}</p>: ''}
+                    {errorMessage ? <p className="error-message">{errorMessage}</p> : ''}
                     <div className="dog-form">
                         <div>
                             <label><strong>Name:</strong></label>
@@ -157,7 +142,7 @@ const ProfilePage = ((props) => {
                             <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
                         </div>
                     </div>
-                            <button className='submit-btn' type="submit">Register</button>
+                    <button className='submit-btn' type="submit">Register</button>
                 </form>
             </div>
         </div>
