@@ -3,6 +3,7 @@ import {useContext, useEffect} from 'react'
 import {AuthContext} from '../context/auth.context'
 import { Calendar, Scheduler, useArrayState } from "@cubedoodl/react-simple-scheduler";
 import axios from "axios";
+import "./Dogcare.css"
 
 function DogCare(){
   const [selected, setSelected] = useState(new Date());
@@ -95,7 +96,6 @@ function DogCare(){
         selected={selected}
         setSelected={setSelected}
         onRequestAdd={(evt) => {
-            {console.log({...evt, name: "Dogcare", enabled: true})}
             addEvent({...evt, name: "Dogcare", enabled: true});
             addDogcare({...evt, name: "Dogcare", enabled: true, owner: user.username, dogs: user.dogs })
             }}
