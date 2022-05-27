@@ -17,27 +17,15 @@
 
 }
 
-<<<<<<< HEAD
-/* .feed-left{
-align-items: center;
-justify-content: center;
 
-} */
 
 .feed-middle{
-    /* margin-top: 10vh; */
+
     left: 20;
-=======
-.feed-middle {
-    left: 10;
-    height: 30vh;
-    margin: 1rem 1rem 1rem 4rem;
-    position: absolute;
->>>>>>> cec9e89f1378531b57043090198f763bc8101bb7
     height: 35vh;
     margin: 1vh 1vw 1vh 12vw ;
     position: absolute;
-   
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
