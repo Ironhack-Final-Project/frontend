@@ -10,22 +10,17 @@ function OverviewDogcare(props){
 const [events, setEvents, addEvent] = useArrayState([]);
 const hours =[];
 const [arr, setArr] = useState([]);
-// const date = new Date()
 let array = []
 const storedToken = localStorage.getItem('authToken')
 
-// console.log(new Date(events[0].from).toString().slice(0,15))
 
 useEffect(()=>{
-  console.log("useeffect called")
     axios
       .get(`${process.env.REACT_APP_API_URL}/auth/users`, 
       { headers: { Authorization: `Bearer ${storedToken}`}}
       )
       .then((response) => {
-        console.log("response.datat....", response.data)
            return response.data.map((element)=>{
-             console.log("element.dogcare...", element.dogcare)
               return  element.dogcare.map((element)=>{
                      return (
                        array.push({
@@ -37,21 +32,16 @@ useEffect(()=>{
                           dogs: element.dogs
                           }
                        )
-                        //  arr.push(
-                         
-                        //  )
                      )
                 })
             })
             
       } )
       .then(response=>{
-        console.log("araaaaay", array)
         setEvents(array)
       })
       .catch((e) => console.log("error getting projects from API...", e));
 
-  // hours===null? getHours() : console.log("loaded hours")
 },[])
 
 

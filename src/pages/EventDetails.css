@@ -29,7 +29,6 @@
     font-weight: 400;
     top: 35vh;
     left: 10vw;
-    /* transform: translate(-50%, -50%); */
     max-width: 40vw;
     text-align: left
 }
@@ -63,7 +62,6 @@
     font-weight: 400;
     top: 55vh;
     left: 10vw;
-    /* transform: translate(-50%, -50%); */
     width: 50vw;
     text-align: left;
     align-items: center;

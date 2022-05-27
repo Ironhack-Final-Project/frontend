@@ -1,45 +1,36 @@
-.posts-container{
-    
-     display: flex;
+.posts-container {
+
+    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     margin: 0;
-    width: 100%; 
+    width: 100%;
     justify-content: space-evenly;
-    align-items: center; 
+    align-items: center;
 }
 
-.feed{
-  display: flex;
-  position: relative;
-  /* width: 80vw; */
-  /* height: 35vh; */
-  align-items: center;
-  justify-content: space-between;
- margin: 0.5rem;
+.feed {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem;
 
 }
 
-/* .feed-left{
-align-items: center;
-justify-content: center;
-
-} */
-
-.feed-middle{
-    /* margin-top: 10vh; */
+.feed-middle {
     left: 10;
     height: 30vh;
-    margin: 1rem 1rem 1rem 4rem ;
+    margin: 1rem 1rem 1rem 4rem;
     position: absolute;
     height: 35vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-   
+
 }
 
-.feed-middle h2{
+.feed-middle h2 {
     margin-top: 8vh;
     font-size: 1.7rem;
     font-weight: 1000 !important;
@@ -47,99 +38,83 @@ justify-content: center;
     color: black;
 }
 
-.feed-right{
+.feed-right {
     right: 0;
     height: 30vh;
-    margin: 1rem 6rem 1rem 1rem ;
+    margin: 1rem 6rem 1rem 1rem;
     position: absolute;
     height: 35vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    
-   
-    /* position: absolute;
-    right: 0;
-    top: 0;
-    height: 35vh;
-    display: flex;
-
-    flex-direction: column;
-    padding: 5rem 2rem;
-    margin: 5rem 0rem; */
-    /* justify-content: space-evenly;  */
 }
-.feed-right .btn{
-  border: solid 1px black;
+
+.feed-right .btn {
+    border: solid 1px black;
     border-radius: 25px;
-  padding: 0.5rem;
-  width: 15vw;
-  text-decoration: none;
+    padding: 0.5rem;
+    width: 15vw;
+    text-decoration: none;
     margin: 0;
     font-size: 1.1rem;
 }
 
-.feed-right .btn-read{
-  background-color: #0a263f;
-  color: white;
-  }
+.feed-right .btn-read {
+    background-color: #0a263f;
+    color: white;
+}
 
-.feed-right .btn-edit{
+.feed-right .btn-edit {
     background-color: gray;
     color: black;
-    }
+}
 
-.feed-right .btn-delete{
-        background-color: #3f110ad5;
-        color: white;
-        }
+.feed-right .btn-delete {
+    background-color: #3f110ad5;
+    color: white;
+}
 
-.feed-right .btn-read:hover{
-            background-color: white;
-            color: #0a263f;
-            }
-          
-.feed-right .btn-edit:hover{
-              background-color: black;
-              color: white;
-              }
-          
-.feed-right .btn-delete:hover{
-                  background-color: #7b2315;
-                  color: white;
-                  }
+.feed-right .btn-read:hover {
+    background-color: white;
+    color: #0a263f;
+}
 
-.feed img{
-    filter:grayscale(80%);
-    /* height: 30vh;
-    width: 30vw; */
-    object-fit: cover ;
+.feed-right .btn-edit:hover {
+    background-color: black;
+    color: white;
+}
+
+.feed-right .btn-delete:hover {
+    background-color: #7b2315;
+    color: white;
+}
+
+.feed img {
+    filter: grayscale(80%);
+    object-fit: cover;
     z-index: -1;
     width: 80vw;
     height: 35vh;
-    /* opacity: 0.7; */
-    /* margin: 0.5rem 1rem; */
-    opacity:0.8;
+    opacity: 0.8;
     background-color: #0a263f;
-    z-index:10;
+    z-index: 10;
 }
 
-.feed-info{
-    
+.feed-info {
+
     display: flex;
     align-self: flex-end;
     justify-content: space-between;
     margin: auto;
 }
 
-.feed-info p{
+.feed-info p {
     font-size: 0.8rem;
     color: #0a263f;
     padding: 1rem;
-    
 }
 
-.posts-container a{
+.posts-container a {
     text-align: center;
     text-decoration: none;
 }

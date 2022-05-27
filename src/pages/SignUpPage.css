@@ -1,16 +1,16 @@
-.sign-up-content{
+.sign-up-content {
     margin-top: 30px;
     display: flex;
     width: 90%;
     margin: 3% auto;
-    justify-content:center;
+    justify-content: center;
 }
 
-.sign-up-content label{
+.sign-up-content label {
     font-size: 1.4rem;
 }
 
-.flex-col form input{
+.flex-col form input {
     border-radius: 25px;
     padding: 0.5rem;
     width: 70%;
@@ -23,7 +23,7 @@
     text-align: left;
 }
 
-.sign-up-dog{
+.sign-up-dog {
     border-radius: 15px;
     width: 70%;
 }

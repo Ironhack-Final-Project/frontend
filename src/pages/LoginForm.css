@@ -1,4 +1,4 @@
-.login-form input{
+.login-form input {
     border-radius: 25px;
     padding: 0.5rem;
     width: 90%;
@@ -7,27 +7,27 @@
     font-family: 'Comfortaa', sans-serif;
 }
 
-.login-form{
+.login-form {
     text-align: left;
     margin-top: 6rem;
 }
 
 
-.input-login{
+.input-login {
     margin: 0 auto;
     width: 20%;
 }
 
-.input-login label{
+.input-login label {
     font-size: 1.5rem;
 }
 
-.btn-div{
+.btn-div {
     display: flex;
     justify-content: center;
 }
 
-#signUp{
+#signUp {
     font-size: 1.2rem;
     margin-top: 4rem;
 }

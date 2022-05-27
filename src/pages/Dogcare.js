@@ -14,7 +14,6 @@ function DogCare(){
 
   useEffect(()=>{
     if (user === null){
-        console.log(1)
         return
     }
     else if(arr[0]!==undefined){

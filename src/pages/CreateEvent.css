@@ -5,15 +5,16 @@
     height: 65%;
 }
 
-.create-event{
+.create-event {
     font-size: 1.5rem;
     text-align: left;
 }
-.create-event h1{
+
+.create-event h1 {
     text-align: center;
 }
 
-.create-event input{
+.create-event input {
     width: 80%;
     border-radius: 25px;
     padding: 0.5rem;
@@ -22,32 +23,32 @@
     font-size: 1.2rem;
 }
 
-.flex-form{
+.flex-form {
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
 }
 
-.flex-col{
+.flex-col {
     width: 30%;
 }
 
-.error-message{
+.error-message {
     color: rgb(235, 30, 30);
     font-weight: bold;
 }
 
-.description{
+.description {
     border-radius: 10px;
-    width : 80%;
-    height : 16%;
+    width: 80%;
+    height: 16%;
     padding: 0.3rem;
     font-family: 'Comfortaa', sans-serif;
-    
+
     font-size: 1.2rem;
     margin: 1rem 0;
 }
 
-.flex-col select{
+.flex-col select {
     margin: 1rem 0;
     padding: 0.6rem 2rem;
     border-radius: 20px;
@@ -55,11 +56,11 @@
     font-family: 'Comfortaa', sans-serif;
 }
 
-.flex-col label{
+.flex-col label {
     margin: 2rem 0;
 }
 
-.submit-btn{
+.submit-btn {
     border-radius: 20px;
     font-size: 1.2rem;
     padding: 0.6rem 2rem;
@@ -67,7 +68,7 @@
     font-family: 'Comfortaa', sans-serif;
 }
 
-.btn-div{
+.btn-div {
     display: flex;
     justify-content: center;
     width: 100%;
