@@ -22,30 +22,33 @@ return(
         {feedDetails === null ?
             <p>loading..</p> :
             <div className="feed-details">
-                <h1>{feedDetails.title}</h1>
-                <div className="post-details">
-                    <p>Posted by: {feedDetails.postedBy.username}</p>
-                    <p>Date: {feedDetails.time.slice(0, 10)}</p>
-                </div>
                 <div className="feed-details-columns">
 
                     <div className="feed-details-left">
+                      <h1>{feedDetails.title}</h1>
+                      <div className="post-details">
+                          <p>Posted by: {feedDetails.postedBy.username}</p>
+                          <p>Date: {feedDetails.time.slice(0, 10)}</p>
+                      </div>
                         <p className="feed-content">{feedDetails.content}</p>
-                    </div>
-                    <div className="feed-details-right">
                         {feedDetails.imageUrl ? 
-                        <img alt={feedDetails.title} src={feedDetails.imageUrl} /> :
+                        <div className="feed-image">
+                        <img alt={feedDetails.title} src={feedDetails.imageUrl} />
+                        </div> :
                         ""
                         // replace with stock imaae
-                    }
+                        }
+                    </div>
                         {feedDetails.event ?
-                        <div className="feed-event-details">
+                        <div className="event-details-right">
+                        <h2 style={{"text-align": 'center'}}>Join us for an Event!</h2>
                             <h3>{feedDetails.event.name}</h3>
                             <p>Cost: €{feedDetails.event.cost}</p>
                             <p>Location: {feedDetails.event.location}</p>
-                            <NavLink to={`/events/${feedDetails.event._id}`}>Click here for more details</NavLink>
+                            <NavLink style={{"font-size": 1.2 + "rem"}} to={`/events/${feedDetails.event._id}`}>Click here for more details</NavLink>
                         </div> : ''
                         }
+                    <div className="feed-details-right">
                     </div>
                 </div>
 

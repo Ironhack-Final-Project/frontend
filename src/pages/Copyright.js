@@ -1,6 +1,6 @@
 function Copyright() {
   return (
-    <div className="copyright">
+    <div className="copyright" style={{width: 30 + "%", margin: "auto"}}>
       <h1>Copyright</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a mauris

@@ -1,9 +1,10 @@
-.event-details-container{
+.event-details-container {
     display: block;
     margin: 0;
     justify-content: space-evenly;
 }
-.event-details-container img{
+
+.event-details-container img {
     width: 100vw;
     height: 90vh;
     z-index: -1;
@@ -12,7 +13,8 @@
     object-fit: cover;
     opacity: 0.5;
 }
-.event-details-container h1{
+
+.event-details-container h1 {
     position: absolute;
     font-size: 4rem;
     font-weight: 300;
@@ -20,7 +22,8 @@
     left: 50vw;
     transform: translate(-50%, -50%);
 }
-.event-details-container .description{
+
+.event-details-container .description {
     position: absolute;
     font-size: 1.1rem;
     font-weight: 400;
@@ -29,22 +32,20 @@
     /* transform: translate(-50%, -50%); */
     max-width: 40vw;
     text-align: left
-
 }
 
-.event-dogs{
- display: flex;
- width: 50%;
- max-height: 8vh;
- justify-content: space-around;
- justify-content:left;
-align-items: center;
-border-bottom: solid 1px ;
-
+.event-dogs {
+    display: flex;
+    width: 50%;
+    max-height: 8vh;
+    justify-content: space-around;
+    justify-content: left;
+    align-items: center;
+    border-bottom: solid 1px;
 }
 
 
-.event-details-right{
+.event-details-right {
     position: absolute;
     left: 70vw;
     top: 32vh;
@@ -55,7 +56,7 @@ border-bottom: solid 1px ;
     border-left: #041C32 1px solid;
 }
 
-.event-details-attending{
+.event-details-attending {
     position: absolute;
     display: flex;
     font-size: 0.8rem;
@@ -71,19 +72,19 @@ border-bottom: solid 1px ;
     flex-direction: column;
 }
 
-.event-details-attending h4{
-padding: 0;
-margin-left: 1rem;
-font-size: 1rem;
+.event-details-attending h4 {
+    padding: 0;
+    margin-left: 1rem;
+    font-size: 1rem;
 }
 
-.event-details-left{
+.event-details-left {
     position: absolute;
     left: 10vw;
     top: 20vh;
 }
 
-.event-dog img{
+.event-dog img {
     width: auto;
     height: 4vh;
     aspect-ratio: 4/3.5;
@@ -92,7 +93,7 @@ font-size: 1rem;
     border-radius: 25px;
 }
 
-.event-dog{
+.event-dog {
     display: flex;
     max-width: 50vw;
     flex-direction: column;
@@ -100,41 +101,42 @@ font-size: 1rem;
 
 
 
-.dog-info{
+.dog-info {
     display: flex;
-     padding: 0rem 0.8rem ;
-     align-items: center;
+    padding: 0rem 0.8rem;
+    align-items: center;
 }
 
 
-.attend-btn{
+.attend-btn {
     position: absolute;
     text-decoration: none;
     top: 32vh;
     left: 50vw;
     transform: translate(-50%, -50%);
-    
+
 }
 
-.attend-btn button{
+.attend-btn button {
     padding: 0.6rem 4rem;
     border: solid 1px;
-   border-radius: 25px;
-   background-color: #041C32;
-   color: white;
-   font-family: 'Comfortaa';
-   font-size: 1rem;
+    border-radius: 25px;
+    background-color: #041C32;
+    color: white;
+    font-family: 'Comfortaa';
+    font-size: 1rem;
 }
 
-.attend-btn button:hover{
+.attend-btn button:hover {
     padding: 0.6rem 4rem;
     border: solid 1px;
-   border-radius: 25px;
-   background-color: white;
-   color: #041C32;
-   font-family: 'Comfortaa';
-   font-size: 1rem;
+    border-radius: 25px;
+    background-color: white;
+    color: #041C32;
+    font-family: 'Comfortaa';
+    font-size: 1rem;
 }
-.dog-name{
+
+.dog-name {
     padding: 0rem 0.5rem;
 }
