@@ -32,18 +32,29 @@ function FeedListPage(props) {
                     const time = element.time.slice(0, 10)
                     return (
                         <div className="feed">
-                            <h2>{element.title}</h2>
-                            <p>{element.content.slice(0, 200) + "....."}</p>
+                        <div className="feed-left">
+                        <img src={element.imageUrl}></img>
+                        </div>
+                        <div className="feed-middle"> 
+                        <h2>{element.title}</h2>
+                            {/* <p>{element.content.slice(0, 200) + "....."}</p> */}
+                            <div className="feed-info"> 
+                            <p>Posted by: {element.postedBy.username}</p> 
                             <p>Date: {time}</p>
-                            <p>Posted by: {element.postedBy.username}</p>
-                            <NavLink to={`/feed/${element._id}`}>Read Article</NavLink><br />
+                            </div>
+                            </div>
+                        <div className="feed-right">
+                        <NavLink to={`/feed/${element._id}`} className="btn btn-read">Read Article</NavLink>
 
                             {user && user.username ? element.postedBy.username === user.username ?
                                 <>
-                                    <NavLink to={`/edit-post/${element._id}`}>Edit</NavLink>
-                                    <a href='#' onClick={(() => deletePost(element))}>Delete</a>
+                                    <NavLink to={`/edit-post/${element._id}`} className="btn btn-edit">Edit</NavLink>
+                                    
+                                    <a href='#' onClick={(() => deletePost(element))} className="btn btn-delete">Delete</a>
                                 </>
-                                : '' : ''}
+                                : null : null}
+                        </div>
+                            
                         </div>
                     )
                 })}

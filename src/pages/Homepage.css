@@ -5,7 +5,7 @@ video{
     top: 0;
     left: 0;
     object-fit: cover;
-
+   opacity: 0.85;
 }
 
 .homepage h1{

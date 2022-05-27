@@ -2,6 +2,7 @@
     display: flex;
     margin: 5% auto;
     width: 80%;
+    color: white
 }
 
 .profile-page-left {
@@ -21,9 +22,9 @@
     max-height: 30vh;
     aspect-ratio: 1;
 }
-body {
+/* body {
     color: white
-}
+} */
 
 .dog img,
 .dog p,
