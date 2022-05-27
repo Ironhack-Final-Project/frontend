@@ -66,9 +66,7 @@ function OverviewDogcare(props) {
       />
       <div>
         <h2>Today</h2>
-        {/* {console.log(events)} */}
         {events.map((element) => {
-          {/* console.log(element) */ }
           return (new Date(element.from).toString().slice(0, 15) === new Date().toString().slice(0, 15) ? (
             <div className="client-today">
               <p>{element.name}</p>
