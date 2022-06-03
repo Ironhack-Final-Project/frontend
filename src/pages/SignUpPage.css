@@ -1,29 +1,55 @@
+.sign-up-page{
+height: 90vh;
+}
+
 .sign-up-content {
-    margin-top: 30px;
     display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
     width: 90%;
-    margin: 3% auto;
+    margin: 2vh auto;
     justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .sign-up-content label {
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 
 .flex-col form input {
     border-radius: 25px;
     padding: 0.5rem;
     width: 70%;
-    margin: 1rem 0;
-    font-size: 1.2rem;
+    margin: 0.5vh 0 1.5vh 0;
+    font-size: 2vh;
     font-family: 'Comfortaa', sans-serif;
 }
 
 .flex-col form {
-    text-align: left;
+    text-align: center;
 }
 
-.sign-up-dog {
-    border-radius: 15px;
-    width: 70%;
+#picture-btn {
+border: solid black 1px;
+background-color: white;
+}
+
+.sign-up{
+    border-bottom: solid black 1px;
+}
+
+.link-login a{
+font-size: 2vh !important;
+}
+
+.submit-btn{
+    border-radius: 25px !important;
+    padding: 0.5rem !important;
+    width: 75% !important;
+    margin: 2vh 0 3vh 0 !important;
+    font-size: 2.5vh !important;
+    font-family: 'Comfortaa', sans-serif;
+    background-color: #041C32 !important;
+    color: white;
 }

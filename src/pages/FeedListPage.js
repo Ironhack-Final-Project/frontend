@@ -27,9 +27,7 @@ function FeedListPage(props) {
                     const time = element.time.slice(0, 10)
                     return (
                         <div className="feed">
-                            <div className="feed-left">
                                 <img alt="" src={element.imageUrl}></img>
-                            </div>
                             <div className="feed-middle">
                                 <h2>{element.title}</h2>
                                 <div className="feed-info">

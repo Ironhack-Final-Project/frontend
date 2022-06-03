@@ -60,14 +60,15 @@ function LoginPage() {
                         value={password}
                         onChange={handlePassword}
                     /><br />
-                </div>
-                <div className="btn-div">
+                    <div className="btn-div">
                     <button className='submit-btn' type="submit">Login</button>
                 </div>
+                </div>
+                
             </form>
 
             <p id="signUp">Don't have an account yet?</p>
-            <Link to={"/register"}> Sign Up</Link>
+            <Link to={"/register"} className="sign-up-link"> Sign Up</Link>
         </div>
     )
 }
