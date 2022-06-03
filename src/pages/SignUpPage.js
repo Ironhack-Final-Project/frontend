@@ -48,13 +48,13 @@ function SignUpPage(props) {
   };
 
   return (
-    <div>
+    <div className="sign-up-page">
       <h1>Sign Up</h1>
 
       {errorMessage ? <p className="error-message">{errorMessage}</p> : ''}
       <div className="sign-up-content">
 
-        <div className="flex-col">
+        <div className="flex-col sign-up">
           <form onSubmit={handleSignupSubmit}>
             <label>User Name:</label><br />
             <input
@@ -63,8 +63,7 @@ function SignUpPage(props) {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             /><br />
-            <label>Upload Profile:</label><br />
-            <input type="file" onChange={(e) => handleFileUpload(e)} /><br />
+           
 
             <label>Email:</label><br />
             <input
@@ -81,6 +80,8 @@ function SignUpPage(props) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             /><br />
+            <label>Upload Picture:</label><br />
+            <input type="file" id="picture-btn" onChange={(e) => handleFileUpload(e)} /><br />
 
             <label>Admin Key:</label><br />
             <input
@@ -94,8 +95,8 @@ function SignUpPage(props) {
           </form>
 
         </div>
-        <div className="flex-col">
-          <img className="sign-up-dog" src={wavingDog} alt="a dog waving" />
+        <div className="flex-col link-login">
+          
           <p>Already have account?</p>
           <Link to={"/login"}> Login</Link>
 

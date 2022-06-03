@@ -13,7 +13,8 @@
     position: relative;
     align-items: center;
     justify-content: space-between;
-    margin: 0.5rem;
+    border: solid black 1px;
+    margin: 1.5vh;
 }
 
 .feed-list h1{
@@ -21,11 +22,11 @@
 }
 
 .feed img {
-    filter: grayscale(100%);
+    filter: grayscale(40%);
     object-fit: cover;
     width: 80vw;
     height: 35vh;
-    opacity: 0.4;
+    opacity: 0.3;
     background-color: #0a263f;
     z-index: -10;
     border: solid black 1px;
@@ -43,10 +44,10 @@
 }
 
 .feed-middle h2 {
-    font-size: max(5.5vh, 1rem);
-    font-weight: 500 !important;
+    font-size: max(4.5vh, 1rem);
+    font-weight: 900 !important;
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     margin: 0 !important;
     text-align: left !important;
 }
