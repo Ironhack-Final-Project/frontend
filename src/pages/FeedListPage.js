@@ -46,7 +46,7 @@ function FeedListPage(props) {
                                     </>
                                     : null : null}
                             </div>
-
+                                      
                         </div>
                     )
                 })}
@@ -61,6 +61,7 @@ function FeedListPage(props) {
             {props.posts === null ?
                 <p>loading..</p> :
                 renderFeedList()}
+            <div className="blank-space"></div>
         </div>
 
     )

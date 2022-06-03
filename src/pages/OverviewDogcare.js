@@ -65,7 +65,10 @@ function OverviewDogcare(props) {
         }}
       />
       <div>
-        <h2>Today</h2>
+        {events.map((element) => {
+          return new Date(element.from).toString().slice(0, 15) === new Date().toString().slice(0, 15) ? (<h2>Today:</h2>) : ''
+        })}
+  
         {events.map((element) => {
           return (new Date(element.from).toString().slice(0, 15) === new Date().toString().slice(0, 15) ? (
             <div className="client-today">
@@ -75,7 +78,7 @@ function OverviewDogcare(props) {
               <p>turnover: {((Number(new Date(element.to).toString().slice(16, 18) + "." + new Date(element.to).toString().slice(19, 21)) - Number(new Date(element.from).toString().slice(16, 18) + "." + new Date(element.from).toString().slice(19, 21))).toFixed(2) * 15) * (element.dogs.length ? element.dogs.length : 1)}€</p>
 
             </div>
-          ) : null)
+          ) : '')
         })}
       </div>
     </>

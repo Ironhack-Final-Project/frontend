@@ -48,6 +48,7 @@ function Calender(props) {
         setSelected={props.setSelected}
         onRequestEdit={(evt) => {navigate(`/events/${evt.id}`)}}
       />
+      <div className="blank-space">''</div>
     </>
   );
 }

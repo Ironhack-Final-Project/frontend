@@ -13,7 +13,7 @@
 }
 .react-simple-scheduler .head {
   margin: 0rem !important;
-  background-color: rgba(168, 105, 105, 0.073) !important;
+  background-color: rgba(168, 105, 105, 0.15) !important;
   font-size: 1rem !important;
   color: #041C32;
 }
@@ -44,7 +44,7 @@
 }
 
 .routes-navbar-container{
-  min-height: 92vh;
+  min-height: 97vh;
   margin: none;
 }
 

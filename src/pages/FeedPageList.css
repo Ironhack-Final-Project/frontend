@@ -21,6 +21,10 @@
     font-size: max(7vh, 2.5rem) !important;
 }
 
+.blank-space{
+    min-height: 1.5vh
+}
+
 .feed img {
     filter: grayscale(40%);
     object-fit: cover;
