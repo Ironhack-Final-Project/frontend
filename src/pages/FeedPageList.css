@@ -14,37 +14,46 @@
     align-items: center;
     justify-content: space-between;
     margin: 0.5rem;
-
 }
 
+.feed-list h1{
+    font-size: max(7vh, 2.5rem) !important;
+}
 
+.feed img {
+    filter: grayscale(100%);
+    object-fit: cover;
+    width: 80vw;
+    height: 35vh;
+    opacity: 0.4;
+    background-color: #0a263f;
+    z-index: -10;
+    border: solid black 1px;
+    position: relative;
+}
 
 .feed-middle{
-
-    left: 20;
-    height: 35vh;
-    margin: 1vh 1vw 1vh 12vw ;
+    left: 3vw;
+    top: 7.5vh;
     position: absolute;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    height: 30vh;
 }
 
 .feed-middle h2 {
-    margin-top: 8vh;
-    font-size: 2.5rem;
+    font-size: max(5.5vh, 1rem);
     font-weight: 500 !important;
-    width: 30vw;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0 !important;
+    text-align: left !important;
 }
 
 .feed-right {
-    right: 0;
+    right: 4vw;
     height: 30vh;
-    margin: 1rem 6rem 1rem 1rem;
     position: absolute;
     height: 35vh;
     display: flex;
@@ -60,6 +69,7 @@
     text-decoration: none;
     margin: 0;
     font-size: 1.1rem;
+    z-index: 5;
 }
 
 .feed-right .btn-read {
@@ -91,28 +101,16 @@
     color: white;
 }
 
-.feed img {
-    filter: grayscale(100%);
-    object-fit: cover;
-    z-index: -1;
-    width: 80vw;
-    height: 35vh;
-    opacity: 0.4;
-    background-color: #0a263f;
-    z-index: 10;
-    border: solid black 1px;
-}
+
 
 .feed-info {
-
     display: flex;
-    align-self: flex-end;
-    justify-content: space-between;
-    margin: auto;
+    align-self: flex-start;
+    justify-content: space-around;
 }
 
 .feed-info p {
-    font-size: 0.8rem;
+    font-size: max(2.5vh, 0.8rem);
     color: #0a263f;
     padding: 1rem;
 }

@@ -9,10 +9,12 @@
     max-height: 50vh;
     width: 28vw;
     margin: 3% 2%;
+    position: relative;
+    text-align: center;
 }
 
 .events-page h1 {
-    font-size: 5rem;
+    font-size: max(10vh, 2.5rem);
     font-weight: 700;
     margin-top: 1rem;
     margin-bottom: 0;
@@ -29,14 +31,16 @@
 }
 
 .event-element h2 {
-    position: relative;
+    position: absolute;
     padding: 0;
     margin: 0;
-    bottom: 94%;
+    left: 0;
+    top: 5vh;
+    width: 28vw;
     font-size: 2.5rem;
     font-weight: 200;
     color: white;
-
+text-align: center;
 }
 
 .event-element p {
@@ -45,19 +49,25 @@
 }
 
 .event-element .nav-link {
-    position: relative;
-    bottom: 45%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-decoration: none;
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 0.5rem 2rem;
     background-color: #041C32;
     border-radius: 25px;
+   
+    width: 20vw;
 }
 
 .event-element .nav-link:hover {
-    position: relative;
-    bottom: 45%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-decoration: none;
     color: #041C32;
     font-size: 1.4rem;
