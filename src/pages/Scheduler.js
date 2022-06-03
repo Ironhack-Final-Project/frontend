@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Scheduler, useArrayState } from "react-scheduler";
+import { Scheduler, useArrayState } from "@cubedoodl/react-simple-scheduler";
 import { useNavigate } from "react-router-dom";
 import "./Scheduler.css"
 
