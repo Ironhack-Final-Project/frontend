@@ -77,7 +77,7 @@ function EventDetails(props) {
               <p className="description"><br /> {eventDetails.description}</p>
               <div className="attend-btn">
                 {userId === null ? (
-                  <button onClick={() => { navigate("/login") }} className="submit-btn">Login to Attend</button>
+                  <button onClick={() => { navigate("/login") }} className="attend-btn">Login to Attend</button>
                 ) : eventDetails.attendees.find(
                   (attending) => attending._id === userId._id
                 ) === undefined ? (
