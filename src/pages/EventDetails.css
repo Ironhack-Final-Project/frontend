@@ -71,7 +71,8 @@
 
 .event-dogs {
     display: flex;
-    width: 50%;
+    flex-wrap: wrap;
+    width: 95%;
     max-height: 8vh;
     justify-content: space-around;
     justify-content: left;
