@@ -92,9 +92,9 @@
     display: flex;
     font-size: 0.8rem;
     font-weight: 400;
-    width: 100%;
+    width: 95%;
     text-align: left;
-    padding: 1vh 0 5vh 5vw;
+    padding: 1% 0 5% 5%;
     flex-direction: column;
     text-align: start;
 }
@@ -121,7 +121,7 @@
 
 .event-dog {
     display: flex;
-    max-width: 50vw;
+    max-width: 100%;
     flex-direction: column;
 }
 
@@ -135,12 +135,7 @@
 
 
 .attend-btn {
-    /* position: absolute; */
     text-decoration: none;
-    /* top: 32vh;
-    left: 50vw; */
-    /* transform: translate(-50%, -50%); */
-
 }
 
 .attend-btn button {
