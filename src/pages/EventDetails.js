@@ -63,7 +63,7 @@ function EventDetails(props) {
         <p>Loading...</p>
       ) : (
         <div className='event-details-container' >
-          <img alt="" src={eventDetails.imageUrl}></img>
+          <img class='bg-image' alt="" src={eventDetails.imageUrl}></img>
           <p className="description">Description: <br /> {eventDetails.description}</p>
           <h1>{eventDetails.name}</h1>
           <div className="attend-btn">

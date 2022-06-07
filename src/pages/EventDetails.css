@@ -6,7 +6,6 @@
 
 .event-details-container img {
     width: 100vw;
-    height: 92vh;
     z-index: -1;
     top: 0;
     left: 0;
@@ -137,4 +136,8 @@
 
 .dog-name {
     padding: 0rem 0.5rem;
+}
+
+.bg-image{
+    min-height: 92vh;
 }
