@@ -62,72 +62,80 @@ function EventDetails(props) {
       {eventDetails === null ? (
         <p>Loading...</p>
       ) : (
-        <div className='event-details-container' >
-          <img class='bg-image' alt="" src={eventDetails.imageUrl}></img>
-          <p className="description">Description: <br /> {eventDetails.description}</p>
-          <h1>{eventDetails.name}</h1>
-          <div className="attend-btn">
-            {userId === null ? (
-              <button onClick={() => { navigate("/login") }} className="submit-btn">Login to Attend</button>
-            ) : eventDetails.attendees.find(
-              (attending) => attending._id === userId._id
-            ) === undefined ? (
-              <button
-                onClick={() => {
-                  attendEvent(eventDetails._id);
-                }}
-              >
-                Attend
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  unattendEvent(eventDetails._id);
-                }}
-              >
-                Unattend
-              </button>
-            )}
-          </div>
-          <div className="event-details-right">
-            <p>Date: {eventDetails.from.slice(0, 10)}</p>
-            <p>From: {eventDetails.from.slice(11, 16)} h</p>
-            <p>To: {eventDetails.to.slice(11, 16)} h</p>
-            <p>Price: {eventDetails.cost}€/h</p>
-            <p>Location: {eventDetails.location}</p>
-            {eventDetails.repeat === 1 ? <p>Every Week</p> : null}
-            {eventDetails.repeat === 2 ? <p>Every Month</p> : null}
-          </div>
+        <div className="event-details-container" style={{
+          backgroundImage: `url(${eventDetails.imageUrl})`,
+          overflow: "hidden",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          filter: "grayscale(100%)",  
+          }}>
+          <div class='events-details-content'>
+            <div class="event-details-left">
+              <h1>{eventDetails.name}</h1>
+              <h3 class="desc-header">Description:</h3>
+              <p className="description"><br /> {eventDetails.description}</p>
+              <div className="attend-btn">
+                {userId === null ? (
+                  <button onClick={() => { navigate("/login") }} className="submit-btn">Login to Attend</button>
+                ) : eventDetails.attendees.find(
+                  (attending) => attending._id === userId._id
+                ) === undefined ? (
+                  <button
+                    onClick={() => {
+                      attendEvent(eventDetails._id);
+                    }}
+                  >
+                    Attend
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      unattendEvent(eventDetails._id);
+                    }}
+                  >
+                    Unattend
+                  </button>
+                )}
+                <div className="event-details-attending">
+                  <h3>Attending:</h3>
+                  {eventDetails.attendees.map((element) => {
+                    return (
+                      <>
 
+                        <div className="event-dogs">
+                          <h4>{element.username}</h4>
+                          {element.dogs.map((dog) => {
+                            return (
+                              <div className="event-dog">
+                                <div className="dog-info">
+                                  <img alt="" src={dog.imageUrl} />
+                                  <p className="dog-name">{dog.name}</p>
+                                  <p>({dog.breed})</p>
+                                </div>
 
-
-
-          <div className="event-details-attending">
-            <h3>Attending:</h3>
-            {eventDetails.attendees.map((element) => {
-              return (
-                <>
-
-                  <div className="event-dogs">
-                    <h4>{element.username}</h4>
-                    {element.dogs.map((dog) => {
-                      return (
-                        <div className="event-dog">
-                          <div className="dog-info">
-                            <img alt="" src={dog.imageUrl} />
-                            <p className="dog-name">{dog.name}</p>
-                            <p>({dog.breed})</p>
-                          </div>
-
+                              </div>
+                            )
+                          })}
                         </div>
-                      )
-                    })}
-                  </div>
-                </>);
-            })}
+                      </>);
+                  })}
 
 
-          </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="event-details-right">
+              <p>Date: {eventDetails.from.slice(0, 10)}</p>
+              <p>From: {eventDetails.from.slice(11, 16)} h</p>
+              <p>To: {eventDetails.to.slice(11, 16)} h</p>
+              <p>Price: {eventDetails.cost}€/h</p>
+              <p>Location: {eventDetails.location}</p>
+              {eventDetails.repeat === 1 ? <p>Every Week</p> : null}
+              {eventDetails.repeat === 2 ? <p>Every Month</p> : null}
+            </div>
+            </div>
         </div>
       )}
     </div>

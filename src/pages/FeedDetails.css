@@ -25,7 +25,6 @@
 
 .feed-details img {
     width: 40%;
-    margin: 0 auto 4% auto;
 }
 
 .feed-details-left {
@@ -57,5 +56,5 @@
 .feed-image {
     display: flex;
     justify-content: center;
-    margin-bottom: 5rem;
+    margin-bottom: 1.5rem;
 }

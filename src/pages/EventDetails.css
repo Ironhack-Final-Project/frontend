@@ -2,34 +2,71 @@
     display: block;
     margin: 0;
     justify-content: space-evenly;
-}
-
-.event-details-container img {
     width: 100vw;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    opacity: 0.5;
+    min-height: 92vh;
+    color: white;
 }
 
-.event-details-container h1 {
+.event-details-content {
+    display: flex;
+    margin: 0;
+    justify-content: space-evenly;
+    opacity: 1;
+    width: 70vw;
+    /* min-height: 100% */
+}
+
+.event-details-content{
+    position: relative
+}
+
+.img-box{
+    display: grid;
+    height: 100%;
+}
+
+/* .bg-image{
+    overflow: hidden;
+    opacity: 0.3;
     position: absolute;
+    left: 0;
+    top: 7vh;
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    max-height: 100vh;
+    margin: auto;
+} */
+
+.event-details-container::after{
+    opacity: 0.3;
+    content: '';
+    display: block;
+    height: auto;
+    position: absolute;
+    width: 50%;
+  }
+
+.events-details-content h1 {
     font-size: 4rem;
     font-weight: 300;
-    top: 15vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
+    margin-top: 0;
+    padding: 1rem;
 }
 
-.event-details-container .description {
-    position: absolute;
-    font-size: 1.1rem;
+.desc-header{
+    text-align: start;
+    margin: 0 5%;
+    background: none;
+}
+
+.event-details-left .description {
+    text-align: start;
+    font-size: 1.3rem;
     font-weight: 400;
-    top: 35vh;
-    left: 10vw;
-    max-width: 40vw;
-    text-align: left
+    max-width: 90%;
+    margin: 0 5% 5% 5% ;
 }
 
 .event-dogs {
@@ -42,11 +79,8 @@
     border-bottom: solid 1px;
 }
 
-
 .event-details-right {
-    position: absolute;
-    left: 70vw;
-    top: 32vh;
+    width: 30vw;
     font-size: 1.4rem;
     font-weight: 400;
     text-align: left;
@@ -55,18 +89,14 @@
 }
 
 .event-details-attending {
-    position: absolute;
     display: flex;
     font-size: 0.8rem;
     font-weight: 400;
-    top: 55vh;
-    left: 10vw;
-    width: 50vw;
+    width: 100%;
     text-align: left;
-    align-items: center;
-    height: 8vh;
-    margin: 1rem;
+    padding: 1vh 0 5vh 5vw;
     flex-direction: column;
+    text-align: start;
 }
 
 .event-details-attending h4 {
@@ -76,9 +106,8 @@
 }
 
 .event-details-left {
-    position: absolute;
-    left: 10vw;
-    top: 20vh;
+    width: 70vw;
+    padding-bottom: 4vh; 
 }
 
 .event-dog img {
@@ -106,11 +135,11 @@
 
 
 .attend-btn {
-    position: absolute;
+    /* position: absolute; */
     text-decoration: none;
-    top: 32vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
+    /* top: 32vh;
+    left: 50vw; */
+    /* transform: translate(-50%, -50%); */
 
 }
 
@@ -122,6 +151,7 @@
     color: white;
     font-family: 'Comfortaa';
     font-size: 1rem;
+    z-index: 1;
 }
 
 .attend-btn button:hover {
@@ -138,6 +168,6 @@
     padding: 0rem 0.5rem;
 }
 
-.bg-image{
-    min-height: 92vh;
+.dog-info p {
+    font-size: 1.2rem;
 }
