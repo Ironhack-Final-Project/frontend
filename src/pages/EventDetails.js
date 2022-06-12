@@ -63,17 +63,6 @@ function EventDetails(props) {
         <p>Loading...</p>
       ) : (
         <>
-        {/* <div className="event-details-container" style={{
-          backgroundImage: `url(${eventDetails.imageUrl})`,
-          overflow: "hidden",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          position: "fixed",
-          opacity: 0.5,
-          // filter: "grayscale(100%)",
-
-          }}></div> */}
           <div class='events-details-content'>
           <img class='event-background' src={eventDetails.imageUrl}/>
             <div class="event-details-left">
