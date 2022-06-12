@@ -62,19 +62,24 @@ function EventDetails(props) {
       {eventDetails === null ? (
         <p>Loading...</p>
       ) : (
-        <div className="event-details-container" style={{
+        <>
+        {/* <div className="event-details-container" style={{
           backgroundImage: `url(${eventDetails.imageUrl})`,
           overflow: "hidden",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          filter: "grayscale(100%)",  
-          }}>
+          position: "fixed",
+          opacity: 0.5,
+          // filter: "grayscale(100%)",
+
+          }}></div> */}
+          <img class='event-background' src={eventDetails.imageUrl}/>
           <div class='events-details-content'>
             <div class="event-details-left">
               <h1>{eventDetails.name}</h1>
               <h3 class="desc-header">Description:</h3>
-              <p className="description"><br /> {eventDetails.description}</p>
+              <p className="description">{eventDetails.description}</p>
               <div className="attend-btn">
                 {userId === null ? (
                   <button onClick={() => { navigate("/login") }} className="attend-btn">Login to Attend</button>
@@ -136,7 +141,8 @@ function EventDetails(props) {
               {eventDetails.repeat === 2 ? <p>Every Month</p> : null}
             </div>
             </div>
-        </div>
+        {/* // </div> */}
+        </>
       )}
     </div>
   );
