@@ -64,7 +64,7 @@ function EventDetails(props) {
       ) : (
         <>
           <div class='events-details-content'>
-          <img class='event-background' src={eventDetails.imageUrl}/>
+          {/* <img class='event-background' src={eventDetails.imageUrl}/> */}
             <div class="event-details-left">
               <h1>{eventDetails.name}</h1>
               <h3 class="desc-header">Description:</h3>
