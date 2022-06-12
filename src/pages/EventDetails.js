@@ -74,8 +74,8 @@ function EventDetails(props) {
           // filter: "grayscale(100%)",
 
           }}></div> */}
-          <img class='event-background' src={eventDetails.imageUrl}/>
           <div class='events-details-content'>
+          <img class='event-background' src={eventDetails.imageUrl}/>
             <div class="event-details-left">
               <h1>{eventDetails.name}</h1>
               <h3 class="desc-header">Description:</h3>
