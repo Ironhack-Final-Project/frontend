@@ -19,11 +19,12 @@
 }
 
 .event-details-content {
-    display: block;
+    display: flex;
     margin: 3vh 3vw;
     justify-content: space-evenly;
     width: 70vw;
     background-color: transparent !important;
+    position: relative
 }
 
 .event-background{
@@ -38,9 +39,7 @@
     object-fit: cover;
 }
 
-.event-details-content{
-    position: relative
-}
+
 
 .events-details-content h1 {
     font-size: 4rem;
@@ -74,13 +73,17 @@
 }
 
 .event-details-right {
-    width: 30vw;
+    width: 25vw;
     font-size: 1.4rem;
     font-weight: 400;
     text-align: left;
     padding: 3rem;
     border-left: #041C32 1px solid;
+    left: 75vw;
+    position: absolute;
+    top: 32vh;
 }
+
 
 .event-details-attending {
     display: flex;
@@ -101,7 +104,7 @@
 }
 
 .event-details-left {
-    width: 70vw;
+    width: 75vw;
     padding-bottom: 4vh; 
 }
 

@@ -22,27 +22,27 @@ function FeedDetailsPage(props) {
                 <p>loading..</p> :
                 <div className="feed-details">
                     <div className="feed-details-columns">
-
-                        <div className="feed-details-left">
-                            <h1>{feedDetails.title}</h1>
-                            <div className="post-details">
-                                <p>Posted by: {feedDetails.postedBy.username}</p>
-                                <p>Date: {feedDetails.time.slice(0, 10)}</p>
-                            </div>
-                            <p className="feed-content">{feedDetails.content}</p>
-                            {feedDetails.imageUrl ?
+                    <h1>{feedDetails.title}</h1>
+                     {feedDetails.imageUrl ?
                                 <div className="feed-image">
                                     <img alt={feedDetails.title} src={feedDetails.imageUrl} />
                                 </div> :
                                 ""}
+                        <div className="feed-details-left">
+                            <p className="feed-content">{feedDetails.content}</p>
+                            <div className="post-details">
+                                <p>Posted by: {feedDetails.postedBy.username}</p>
+                                <p>Date: {feedDetails.time.slice(0, 10)}</p>
+                            </div>
+                           
                         </div>
                         {feedDetails.event ?
-                            <div className="event-details-right">
-                                <h2 style={{ "text-align": 'center' }}>Join us for an Event!</h2>
+                            <div className="feed-details-right">
+                                <h2 style={{ "text-align": 'center' }}>Join our Event!</h2>
                                 <h3>{feedDetails.event.name}</h3>
                                 <p>Cost: €{feedDetails.event.cost}</p>
                                 <p>Location: {feedDetails.event.location}</p>
-                                <NavLink style={{ "font-size": 1.2 + "rem" }} to={`/events/${feedDetails.event._id}`}>Click here for more details</NavLink>
+                                <h6 className="feed-details-btn"><NavLink  style={{ "font-size": 1 + "rem" }} to={`/events/${feedDetails.event._id}`}>More Details</NavLink></h6> 
                             </div> : ''
                         }
                         <div className="feed-details-right">

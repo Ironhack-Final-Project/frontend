@@ -1,6 +1,11 @@
 .feed-details {
     background-color: rgba(168, 105, 105, 0.073);
-    padding: 3rem;
+    padding: 3vh 3vw;
+    margin: 0;
+}
+
+.feed-details h2{
+    margin: 0;
 }
 
 .feed-content {
@@ -10,25 +15,23 @@
 .feed-details-columns {
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: space-evenly;
     min-height: 80vh;
 }
 
-.feed-details-right {
-    width: 30%;
-}
+
 
 .feed-details-left {
-    width: 70%;
+    width: 70vw;
+    text-align: left;
 }
 
 .feed-details img {
-    width: 40%;
-}
-
-.feed-details-left {
-    text-align: left;
+    width: 90vw;
+    height: 35vh;
+    object-fit: cover;
 }
 
 .feed-details-left h1 {
@@ -36,25 +39,52 @@
 }
 
 .post-details {
-    width: 30%;
+    width: 100%;
     justify-content: space-between;
     display: flex;
     margin: 0;
 }
 
-.event-details-right {
+.feed-details-right {
+    width: 20vw;
     position: absolute;
-    left: 70vw;
-    top: 32vh;
-    font-size: 1.4rem;
+    left: 75%;
+    top: 60%;
     font-weight: 400;
-    text-align: left;
-    padding: 3rem;
     border-left: #041C32 1px solid;
+    padding: 2vw;
+}
+
+.feed-details-right p{
+   margin: 2vh 0vw !important;
+   text-align: left;
 }
 
 .feed-image {
     display: flex;
     justify-content: center;
-    margin-bottom: 1.5rem;
+}
+
+.feed-details-btn{
+    border: solid 1px black;
+    border-radius: 25px;
+    padding: 0.5rem;
+    width: 100%;
+    text-decoration: none;
+    margin: 0;
+    font-size: 1rem !important;
+    z-index: 5;
+    align-self: center !important;
+    background-color: #041C32;
+    color: white;
+}
+
+.feed-details-right h4{
+    margin-bottom: 2vh;
+    padding: 0;
+}
+
+.feed-details-right a{
+    text-decoration: none !important;
+    color: white;
 }
