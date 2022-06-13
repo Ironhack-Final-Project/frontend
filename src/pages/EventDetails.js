@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { useNavigate } from "react-router-dom";
 import "./EventDetails.css"
+import BounceLoader from "react-spinners/ClipLoader";
 
 function EventDetails(props) {
   const { eventId } = useParams();
@@ -12,6 +13,7 @@ function EventDetails(props) {
   const [userId, setUserId] = useState(null);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
 
@@ -60,7 +62,9 @@ function EventDetails(props) {
   return (
     <div className="event-details">
       {eventDetails === null ? (
-        <p>Loading...</p>
+        <div className="spinner-div">
+        <BounceLoader color="#041C32" loading={loading}  size={100} className="spinner" />
+        </div>
       ) : (
         <>
           <div class='events-details-content'>

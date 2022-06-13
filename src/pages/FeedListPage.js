@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from '../context/auth.context'
 import "./FeedPageList.css"
+import BounceLoader from "react-spinners/ClipLoader"
 
 function FeedListPage(props) {
     const { user } = useContext(AuthContext)
+    const [loading, setLoading] = useState(true)
 
     const deletePost = ((element) => {
         const storedToken = localStorage.getItem('authToken')
@@ -59,7 +61,9 @@ function FeedListPage(props) {
         <div className="feed-list">
             <h1>Blog</h1>
             {props.posts === null ?
-                <p>loading..</p> :
+                <div className="spinner-div">
+                <BounceLoader color="#041C32" loading={loading}  size={100} className="spinner" />
+                </div> :
                 renderFeedList()}
             <div className="blank-space"></div>
         </div>

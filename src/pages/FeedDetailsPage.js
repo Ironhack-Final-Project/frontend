@@ -1,11 +1,13 @@
 import { useParams, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./FeedDetails.css"
+import "./FeedDetails.css";
+import BounceLoader from "react-spinners/ClipLoader"
 
 function FeedDetailsPage(props) {
     const { feedId } = useParams()
     const [feedDetails, setFeedDetails] = useState(null)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
 
@@ -19,7 +21,9 @@ function FeedDetailsPage(props) {
     return (
         <>
             {feedDetails === null ?
-                <p>loading..</p> :
+                <div className="spinner-div">
+                <BounceLoader color="#041C32" loading={loading}  size={100} className="spinner" />
+                </div> :
                 <div className="feed-details">
                     <div className="feed-details-columns">
                     <h1>{feedDetails.title}</h1>

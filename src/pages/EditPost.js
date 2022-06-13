@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { uploadImage } from '../components/utitlityFunctions'
+import BounceLoader from "react-spinners/ClipLoader"
+
 
 const CreatePost = ((props) => {
     const navigate = useNavigate()
@@ -11,6 +13,7 @@ const CreatePost = ((props) => {
     const [imageUrl, setImageUrl] = useState('');
     const [postDetails, setPostDetails] = useState('')
     const [errorMessage, setErrorMessage] = useState(undefined);
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/feed/${feedId}`)
@@ -102,7 +105,9 @@ const CreatePost = ((props) => {
                                 /><br />
                             </div>
                         </div>
-                    </form>) : "loading"}
+                    </form>) : <div className="spinner-div">
+                <BounceLoader color="#041C32" loading={loading}  size={100} className="spinner" />
+                </div>}
             </div>
         </>
     )

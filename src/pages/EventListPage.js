@@ -2,10 +2,13 @@ import { useState, useEffect, useContext } from "react";
 import "./EventPageList.css";
 import { AuthContext } from "../context/auth.context";
 import { NavLink } from "react-router-dom";
+import BounceLoader from "react-spinners/ClipLoader";
+
 
 function EventListPage(props) {
   const [userId, setUserId] = useState(null);
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     user === null ? console.log("user undefined") : setUserId(user);
@@ -19,7 +22,9 @@ function EventListPage(props) {
       <div className="events-list">
 
         {props.allEvents === null ? (
-          <p>Loading...</p>
+          <div className="spinner-div">
+          <BounceLoader color="#041C32" loading={loading}  size={100} className="spinner" />
+          </div> 
         ) : (
           props.allEvents.map((element) => {
             return (

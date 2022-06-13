@@ -24,11 +24,13 @@ import EventDetails from "./pages/EventDetails";
 import DogCare from "./pages/Dogcare";
 import OverviewDogcare from "./pages/OverviewDogcare";
 
+
+
 function App() {
   const [posts, setPosts] = useState(null);
   const [allEvents, setAllEvents] = useState([]);
-
   const [selected, setSelected] = useState(new Date());
+ 
 
   useEffect(() => {
     fetchPosts();
