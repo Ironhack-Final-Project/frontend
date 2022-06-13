@@ -58,15 +58,16 @@ function EventDetails(props) {
   };
 
   return (
-    <div >
+    <div className="event-details">
       {eventDetails === null ? (
         <p>Loading...</p>
       ) : (
         <>
           <div class='events-details-content'>
+          <h1>{eventDetails.name}</h1>
           {/* <img class='event-background' src={eventDetails.imageUrl}/> */}
             <div class="event-details-left">
-              <h1>{eventDetails.name}</h1>
+              
               <h3 class="desc-header">Description:</h3>
               <p className="description">{eventDetails.description}</p>
               <div className="attend-btn">
@@ -93,6 +94,7 @@ function EventDetails(props) {
                 )}
                 <div className="event-details-attending">
                   <h3>Attending:</h3>
+                  <div className="attending-content">
                   {eventDetails.attendees.map((element) => {
                     return (
                       <>
@@ -114,6 +116,8 @@ function EventDetails(props) {
                         </div>
                       </>);
                   })}
+                  </div>
+                  
 
 
                 </div>
