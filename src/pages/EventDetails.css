@@ -1,7 +1,6 @@
 .event-details{
     z-index: -1;
     background-image: url(../images/tricks.jpeg);
-    height: 95vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
